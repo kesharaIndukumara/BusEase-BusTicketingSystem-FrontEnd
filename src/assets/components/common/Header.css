@@ -1,0 +1,175 @@
+.navbar-container {
+    font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+.navbar-background {
+    background-color: rgba(30, 58, 138, 1);
+    width: 100%;
+}
+
+.navbar-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 20px 40px 20px 80px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    aspect-ratio: 1;
+    width: 40px;
+    align-items: start;
+    font-size: 20px;
+    color: rgba(30, 58, 138, 1);
+    text-align: center;
+    justify-content: center;
+    padding: 10px 8px;
+}
+
+.logo-background {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.bus-emoji {
+    position: relative;
+}
+
+.brand-name {
+    color: rgba(255, 255, 255, 1);
+    font-size: 24px;
+    flex-basis: auto;
+    margin: auto 0;
+}
+
+.navigation-menu {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    white-space: nowrap;
+    margin: 0 auto;
+    justify-content: center;
+    flex: 0 1 auto;
+}
+
+.nav-item {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.nav-item:hover {
+    opacity: 0.8;
+}
+
+.signin-button {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    aspect-ratio: 3.429;
+    font-size: 14px;
+    color: rgba(30, 58, 138, 1);
+    text-align: center;
+    justify-content: center;
+    padding: 10px 36px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.signin-button:hover {
+    opacity: 0.9;
+}
+
+.signin-background {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.signin-text {
+    position: relative;
+}
+
+@media (max-width: 991px) {
+    .navbar-content {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    .brand-section {
+        left: 10px;
+    }
+    .signin-button {
+        right: 10px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+        position: static;
+    }
+    .brand-section, .signin-button {
+        position: static;
+        transform: none;
+    }
+    .navigation-menu {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .signin-button {
+        align-self: center;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-name {
+    font-size: 20px;
+    }
+
+    .navigation-menu {
+    gap: 15px;
+    font-size: 14px;
+    }
+
+    .navbar-content {
+    padding: 12px 15px;
+    }
+}
