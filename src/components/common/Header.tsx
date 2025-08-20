@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import BusEaseLogo from '../../images/BusEase-logo.png';
+import BusEaseLogo from '../../assets/img/BusEase-logo.png';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
