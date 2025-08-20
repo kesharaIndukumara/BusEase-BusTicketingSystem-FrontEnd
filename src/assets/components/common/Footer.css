@@ -1,0 +1,398 @@
+/* Desktop Styles */
+.footer-container {
+  width: 100%;
+  min-height: 292px;
+  background: #BBC4DD;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.brand-section {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.brand-text {
+  color: #000;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+.brand-icon-container {
+  width: 58px;
+  height: 58px;
+  position: relative;
+}
+
+.brand-icon-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-icon-svg {
+  width: 58px;
+  height: 58px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.bus-emoji {
+  width: 30px;
+  height: 30px;
+  color: #1E3A8A;
+  text-align: center;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: normal;
+  position: absolute;
+  left: 14px;
+  top: 14px;
+}
+
+.navigation-links {
+  flex: 1;
+  min-width: 150px;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  color: #000;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #1E3A8A;
+}
+
+.contact-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.contact-phone-icon {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-title {
+  color: #000;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 8px;
+}
+
+.contact-phone {
+  color: #000;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+
+.contact-email {
+  color: #000;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.media-section {
+  flex: 1;
+  min-width: 280px;
+  margin-bottom: 20px;
+}
+
+.video-section {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.video-background {
+  width: 100%;
+  max-width: 261px;
+  height: 126px;
+  background: #D9D9D9;
+  position: relative;
+}
+
+.video-title {
+  color: #374151;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  left: 13px;
+  top: 10px;
+}
+
+.youtube-icon {
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.social-section {
+  position: relative;
+}
+
+.social-background {
+  width: 100%;
+  max-width: 107px;
+  height: 30px;
+  background: #D9D9D9;
+  position: relative;
+}
+
+.social-title {
+  color: #374151;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  left: 13px;
+  top: 7px;
+}
+
+.facebook-icon {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  right: 20px;
+  top: 4px;
+}
+
+.copyright-text {
+  color: #000;
+  text-align: center;
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  width: 100%;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .footer-container {
+    min-height: auto;
+    padding: 30px 20px;
+  }
+
+  .contact-section {
+    min-width: 300px;
+  }
+
+  .media-section {
+    min-width: 250px;
+  }
+
+  .video-background {
+    max-width: 220px;
+    height: 100px;
+  }
+
+  .youtube-icon {
+    width: 80px;
+    height: 80px;
+    right: 10px;
+    top: 10px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    padding: 20px 15px;
+    text-align: center;
+  }
+
+  .brand-section,
+  .navigation-links,
+  .contact-section,
+  .media-section {
+    flex: none;
+    width: 100%;
+    min-width: unset;
+    margin-bottom: 30px;
+  }
+
+  .brand-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand-icon-container {
+    margin: 0 auto;
+  }
+
+  .navigation-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .nav-link {
+    margin-bottom: 0;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-phone-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .media-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-section {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .video-background {
+    max-width: 280px;
+    height: 120px;
+  }
+
+  .youtube-icon {
+    width: 90px;
+    height: 90px;
+    right: 15px;
+    top: 15px;
+  }
+
+  .social-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-background {
+    max-width: 120px;
+  }
+
+  .copyright-text {
+    font-size: 11px;
+    margin-top: 20px;
+    padding: 15px 0 0 0;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 15px 10px;
+  }
+
+  .brand-text {
+    font-size: 20px;
+  }
+
+  .brand-icon-container {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brand-icon-svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .bus-emoji {
+    font-size: 28px;
+    left: 11px;
+    top: 11px;
+  }
+
+  .navigation-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-phone-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .video-background {
+    max-width: 250px;
+    height: 100px;
+  }
+
+  .youtube-icon {
+    width: 70px;
+    height: 70px;
+    right: 10px;
+    top: 15px;
+  }
+
+  .social-background {
+    max-width: 100px;
+    height: 28px;
+  }
+
+  .facebook-icon {
+    width: 18px;
+    height: 18px;
+    top: 5px;
+  }
+
+  .copyright-text {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
