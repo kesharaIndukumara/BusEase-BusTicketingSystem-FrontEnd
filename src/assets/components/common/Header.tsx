@@ -1,48 +1,57 @@
-import { useState } from "react";
-import "./Header.css"; // Assuming you have a CSS file for styles
+import React, { useState } from "react";
+import "./Header.css";
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="navbar-container">
-      <div className="navbar-background">
-        <div className="navbar-content">
-          <div className="brand-section">
-            <div className="logo-container">
+    <div className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-content" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="logo-section">
+            <div className="logo-icon">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/e78d755b5773f875499d36d326b520e4d3716598?placeholderIfAbsent=true"
-                alt="Bus icon background"
+                alt="BusEase Logo Background"
                 className="logo-background"
               />
-              <div className="bus-emoji">
-                🚌
-              </div>
+              <div className="logo-emoji">🚌</div>
             </div>
-            <div className="brand-name">
-              BusEase
+            <div className="brand-name">BusEase</div>
+          </div>
+
+          <div className="mobile-menu-toggle" onClick={toggleMenu}>
+            <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+            <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+            <span className={`hamburger-line ${isMenuOpen ? 'open' : ''}`}></span>
+          </div>
+
+          <nav className={`navigation-links ${isMenuOpen ? 'mobile-open' : ''}`} style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '2rem' }}>
+            <div className="nav-link">Home</div>
+            <div className="nav-link">Features</div>
+            <div className="nav-link">Reviews</div>
+            <div className="nav-link">Contact</div>
+            <div className="signin-button mobile-signin">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
+                alt="Sign In Button Background"
+                className="signin-background"
+              />
+              <div className="signin-text">Sign In</div>
             </div>
-          </div>
-          {/* Hamburger menu for mobile */}
-          <div className="hamburger-menu" onClick={() => setMenuOpen(!menuOpen)}>
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
-          </div>
-          <div className={`navigation-menu${menuOpen ? ' open' : ''}`}>
-            <div className="nav-item">Home</div>
-            <div className="nav-item">Features</div>
-            <div className="nav-item">Reviews</div>
-            <div className="nav-item">Contact</div>
-          </div>
-          <div className="signin-button round">
+          </nav>
+
+          <div className="signin-button desktop-signin">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
-              alt="Sign in button background"
+              alt="Sign In Button Background"
               className="signin-background"
             />
-            <div className="signin-text">
-              Sign In
-            </div>
+            <div className="signin-text">Sign In</div>
           </div>
         </div>
       </div>

@@ -1,175 +1,317 @@
-.navbar-container {
-    font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
-    font-weight: 700;
+.navbar {
+  font-family: Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  font-weight: 700;
 }
 
-.navbar-background {
-    background-color: rgba(30, 58, 138, 1);
-    width: 100%;
+.navbar-container {
+  background-color: rgba(30, 58, 138, 1);
+  width: 100%;
 }
 
 .navbar-content {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: nowrap;
-    justify-content: center;
-    padding: 20px 40px 20px 80px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    position: relative;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 40px 20px 80px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
 }
 
-.brand-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    white-space: nowrap;
-    position: absolute;
-    left: 40px;
-    top: 0;
-    bottom: 0;
-    height: 100%;
+.logo-section {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  white-space: nowrap;
+  position: absolute;
+  left: 80px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.logo-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    aspect-ratio: 1;
-    width: 40px;
-    align-items: start;
-    font-size: 20px;
-    color: rgba(30, 58, 138, 1);
-    text-align: center;
-    justify-content: center;
-    padding: 10px 8px;
+.logo-icon {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  aspect-ratio: 1;
+  width: 40px;
+  align-items: start;
+  font-size: 20px;
+  color: rgba(30, 58, 138, 1);
+  text-align: center;
+  justify-content: center;
+  padding: 10px 8px;
 }
 
 .logo-background {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.bus-emoji {
-    position: relative;
+.logo-emoji {
+  position: relative;
 }
 
 .brand-name {
-    color: rgba(255, 255, 255, 1);
-    font-size: 24px;
-    flex-basis: auto;
-    margin: auto 0;
+  color: rgba(255, 255, 255, 1);
+  font-size: 24px;
+  flex-basis: auto;
+  margin: auto 0;
 }
 
-.navigation-menu {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 1);
-    font-weight: 400;
-    white-space: nowrap;
-    margin: 0 auto;
-    justify-content: center;
-    flex: 0 1 auto;
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+  margin: auto 0;
 }
 
-.nav-item {
-    cursor: pointer;
-    transition: opacity 0.2s ease;
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 1);
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
 }
 
-.nav-item:hover {
-    opacity: 0.8;
+.hamburger-line.open:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.open:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.navigation-links {
+  display: flex;
+  align-items: stretch;
+  gap: 36px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  white-space: nowrap;
+  margin: auto 0;
+}
+
+.nav-link {
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 1);
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .signin-button {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    aspect-ratio: 3.429;
-    font-size: 14px;
-    color: rgba(30, 58, 138, 1);
-    text-align: center;
-    justify-content: center;
-    padding: 10px 36px;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  aspect-ratio: 3.429;
+  align-items: stretch;
+  font-size: 14px;
+  color: rgba(30, 58, 138, 1);
+  text-align: center;
+  justify-content: center;
+  padding: 10px 36px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 25px;
+  overflow: hidden;
 }
 
 .signin-button:hover {
-    opacity: 0.9;
+  transform: translateY(-50%) scale(1.05);
 }
 
 .signin-background {
-    position: absolute;
-    inset: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .signin-text {
-    position: relative;
+  position: relative;
 }
 
-@media (max-width: 991px) {
-    .navbar-content {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-    .brand-section {
-        left: 10px;
-    }
-    .signin-button {
-        right: 10px;
-        padding: 0 20px;
-    }
+.mobile-signin {
+  display: none;
 }
 
+.desktop-signin {
+  display: flex;
+}
+
+/* Tablet breakpoint */
 @media (max-width: 768px) {
-    .navbar-content {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-        position: static;
-    }
-    .brand-section, .signin-button {
-        position: static;
-        transform: none;
-    }
-    .navigation-menu {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    .signin-button {
-        align-self: center;
-        margin-top: 0;
-    }
+  .navbar-content {
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .logo-section {
+    left: 20px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+
+  .navigation-links {
+    gap: 24px;
+    font-size: 14px;
+  }
+
+  .signin-button {
+    right: 20px;
+    padding: 8px 24px;
+    font-size: 12px;
+  }
 }
 
-@media (max-width: 480px) {
-    .brand-name {
-    font-size: 20px;
-    }
+/* Mobile breakpoint */
+@media (max-width: 640px) {
+  .navbar-content {
+    padding: 15px 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-    .navigation-menu {
+  .mobile-menu-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  .logo-section {
+    order: 1;
     gap: 15px;
-    font-size: 14px;
-    }
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+  }
+  
+  .logo-icon {
+    width: 35px;
+    font-size: 18px;
+    padding: 8px 6px;
+  }
+  
+  .brand-name {
+    font-size: 18px;
+  }
+  
+  .navigation-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(30, 58, 138, 1);
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .navigation-links.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-link {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .nav-link:last-of-type {
+    border-bottom: none;
+  }
+  
+  .mobile-signin {
+    display: flex;
+    margin: 20px auto 0;
+    align-self: center;
+    margin-top: 20px;
+    width: fit-content;
+  }
+  
+  .desktop-signin {
+    display: none;
+  }
+}
 
-    .navbar-content {
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+  .navbar-content {
     padding: 12px 15px;
-    }
+  }
+  
+  .logo-section {
+    gap: 10px;
+  }
+  
+  .logo-icon {
+    width: 30px;
+    font-size: 16px;
+    padding: 6px 4px;
+  }
+  
+  .brand-name {
+    font-size: 16px;
+  }
+  
+  .navigation-links {
+    padding: 15px;
+  }
+  
+  .nav-link {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .navbar-content {
+    padding: 10px 12px;
+  }
+  
+  .brand-name {
+    font-size: 14px;
+  }
+  
+  .logo-icon {
+    width: 28px;
+    font-size: 14px;
+  }
 }
