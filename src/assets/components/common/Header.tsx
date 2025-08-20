@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
+import BusEaseLogo from '../../images/BusEase-logo.png';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,13 +16,12 @@ function Header() {
           <div className="logo-section">
             <div className="logo-icon">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/e78d755b5773f875499d36d326b520e4d3716598?placeholderIfAbsent=true"
-                alt="BusEase Logo Background"
+                src={BusEaseLogo}
+                alt="BusEase Logo"
                 className="logo-background"
               />
-              <div className="logo-emoji">🚌</div>
             </div>
-            <div className="brand-name">BusEase</div>
+            {/* <div className="brand-name">BusEase</div> */}
           </div>
 
           <div className="mobile-menu-toggle" onClick={toggleMenu}>
