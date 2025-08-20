@@ -1,521 +1,382 @@
-/* Hero Container */
-.hero-container {
+.hero-section {
   width: 100%;
-  height: 100vh;
-  min-height: 1024px;
+  height: 766px;
   position: relative;
   overflow: hidden;
-  background-color: #FFF;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+  background-color: #1e3a8a;
+  margin: 0 auto;
 }
 
-/* Mobile-first approach */
-@media (max-width: 480px) {
-  .hero-container {
-    min-height: 100vh;
-    padding: 20px 0;
-  }
-}
-
-/* Background Elements */
-.background-gradient {
+.hero-background {
   width: 100%;
-  height: 100%;
+  height: 766px;
+  flex-shrink: 0;
   position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
+  left: 0px;
+  top: 0px;
+  background-color: #b1bad2;
 }
 
-.decorative-circle {
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  left: 104px;
-  top: 165px;
-  z-index: 2;
-}
-
-@media (max-width: 768px) {
-  .decorative-circle {
-    display: none;
-  }
-}
-
-.bottom-section {
-  width: 100%;
-  height: 350px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 3;
-}
-
-@media (max-width: 768px) {
-  .bottom-section {
-    height: 280px;
-  }
-}
-
-@media (max-width: 480px) {
-  .bottom-section {
-    height: 220px;
-  }
-}
-
-/* Bus Image */
-.bus-image {
+.hero-image {
   width: 1133px;
   height: 755px;
+  flex-shrink: 0;
+  aspect-ratio: 1130/753;
   position: absolute;
   left: -10px;
   top: 11px;
-  z-index: 4;
+  object-fit: cover;
 }
 
-/* Hero Content */
 .hero-content {
   width: 672px;
-  height: 226px;
+  height: 221px;
+  flex-shrink: 0;
   position: absolute;
-  left: 745px;
-  top: 80px;
-  z-index: 5;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .hero-title {
-  color: #FFF;
-  text-align: center;
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 672px;
-  height: 64px;
+  height: 77px;
+  flex-shrink: 0;
+  color: #000;
+  text-align: right;
   font: 700 56px Arial, -apple-system, Roboto, Helvetica, sans-serif;
-  margin: 0;
 }
 
 .hero-description {
-  color: rgba(255, 255, 255, 0.90);
+  width: 558px;
+  height: 50px;
+  flex-shrink: 0;
+  color: #000;
   text-align: right;
   position: absolute;
   left: 114px;
-  top: 78px;
-  width: 558px;
-  height: 42px;
+  top: 93px;
   font: 400 18px Arial, -apple-system, Roboto, Helvetica, sans-serif;
-  margin: 0;
 }
 
-/* Action Buttons */
-.action-buttons {
-  position: absolute;
-  top: 176px;
-  left: 299px;
-  display: flex;
-  gap: 40px;
-}
-
-.book-button,
-.learn-button {
+.hero-buttons {
   position: relative;
+  width: 100%;
+  height: 60px;
+  top: 162px;
+}
+
+.book-button {
+  position: absolute;
+  left: 299px;
+  top: 0px;
   width: 160px;
-  height: 50px;
-  border: none;
-  background: transparent;
+  height: 60px;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
 }
 
-.book-button:hover,
-.learn-button:hover {
-  transform: translateY(-2px);
-}
-
-.book-button:active,
-.learn-button:active {
-  transform: translateY(0);
-  opacity: 0.9;
-}
-
-@media (hover: none) and (pointer: coarse) {
-  .book-button:hover,
-  .learn-button:hover {
-    transform: none;
-  }
-
-  .book-button:active,
-  .learn-button:active {
-    transform: scale(0.98);
-    opacity: 0.8;
-  }
+.book-button-bg {
+  width: 160px;
+  height: 60px;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
 
 .book-button-text {
-  color: #1E3A8A;
-  text-align: center;
-  position: absolute;
-  left: 21px;
-  top: 14px;
   width: 119px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font: 700 16px Arial, -apple-system, Roboto, Helvetica, sans-serif;
-}
-
-.learn-button-text {
-  color: #FFF;
-  text-align: center;
-  position: absolute;
-  left: 37px;
-  top: 14px;
-  width: 87px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font: 700 16px Arial, -apple-system, Roboto, Helvetica, sans-serif;
-}
-
-/* Feature Cards */
-.feature-cards {
-  width: 1120px;
-  height: 180px;
-  position: absolute;
-  left: 144px;
-  bottom: 88px;
-  z-index: 6;
-  display: flex;
-  gap: 20px;
-}
-
-.feature-card {
-  position: relative;
-  width: 360px;
-  height: 180px;
-}
-
-.feature-card-background {
-  width: 360px;
-  height: 180px;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.feature-icon {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  left: 150px;
-  top: 20px;
-}
-
-.feature-emoji {
-  color: #FFF;
+  height: 22px;
+  flex-shrink: 0;
+  color: #1e3a8a;
   text-align: center;
   position: absolute;
   left: 20px;
-  top: 20px;
-  width: 20px;
-  height: 20px;
-  font: 400 20px Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  top: 18px;
+  font: 700 16px Arial, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-.feature-title {
-  color: #1E3A8A;
+.learn-button {
+  position: absolute;
+  left: 499px;
+  top: 0px;
+  width: 160px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.learn-button-bg {
+  width: 160px;
+  height: 60px;
+  flex-shrink: 0;
+  stroke-width: 2px;
+  stroke: #000;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  fill: none;
+}
+
+.learn-button-text {
+  width: 87px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #000;
   text-align: center;
   position: absolute;
-  top: 80px;
-  width: 100%;
-  height: 23px;
-  font: 700 20px Arial, -apple-system, Roboto, Helvetica, sans-serif;
-  margin: 0;
+  left: 36px;
+  top: 18px;
+  font: 700 16px Arial, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-.feature-description {
-  color: #64748B;
-  text-align: center;
-  position: absolute;
-  top: 111px;
-  height: 32px;
-  width: 100%;
-  font: 400 14px Arial, -apple-system, Roboto, Helvetica, sans-serif;
-  margin: 0;
-  line-height: 1.2;
-}
-
-/* Responsive Design */
-@media (max-width: 991px) {
-  .hero-container {
-    min-height: 800px;
-  }
-
-  .bus-image {
-    width: 800px;
-    height: 533px;
-    left: -50px;
-    top: 50px;
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 700px;
   }
 
   .hero-content {
-    width: 500px;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100px;
+    width: 600px;
+    left: 400px;
   }
 
   .hero-title {
-    font-size: 42px;
-    width: 500px;
+    width: 600px;
+    font-size: 48px;
   }
 
   .hero-description {
-    font-size: 16px;
-    width: 400px;
+    width: 500px;
+    font-size: 17px;
     left: 50px;
-    text-align: center;
-  }
-
-  .action-buttons {
-    left: 90px;
-    gap: 20px;
-  }
-
-  .feature-cards {
-    width: 90%;
-    left: 5%;
-    bottom: 50px;
-    flex-direction: column;
-    height: auto;
-    gap: 20px;
-  }
-
-  .feature-card {
-    width: 100%;
-    height: 160px;
-  }
-
-  .feature-icon {
-    left: calc(50% - 30px);
-  }
-
-  .feature-title {
-    font-size: 18px;
-    top: 70px;
-  }
-
-  .feature-description {
-    font-size: 12px;
-    top: 95px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-container {
-    min-height: 100vh;
+  .hero-section {
+    height: 600px;
   }
 
-  .bus-image {
-    width: 100%;
-    height: auto;
-    left: 0;
+  .hero-image {
+    width: 700px;
+    height: 467px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 40px;
-    opacity: 0.8;
+  }
+}
+
+@media (max-width: 699px) and (min-width: 481px) {
+  .hero-image {
+    filter: blur(3px);
   }
 
   .hero-content {
     width: 90%;
+    max-width: 500px;
     left: 5%;
-    top: 80px;
-    transform: none;
+    top: 280px;
     text-align: center;
   }
 
   .hero-title {
-    font-size: 32px;
     width: 100%;
+    font-size: 36px;
+    left: 0;
     text-align: center;
-    position: relative;
-    height: auto;
-    margin-bottom: 20px;
+    color: #fff;
   }
 
   .hero-description {
-    font-size: 16px;
     width: 100%;
+    font-size: 16px;
     left: 0;
+    top: 70px;
     text-align: center;
-    position: relative;
-    top: 0;
-    margin-bottom: 30px;
-    line-height: 1.5;
+    line-height: 1.4;
+    color: #fff;
   }
 
-  .action-buttons {
+  .hero-buttons {
+    top: 140px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .book-button {
     position: relative;
     left: 0;
-    top: 0;
+  }
+
+  .learn-button {
+    position: relative;
+    left: 0;
+  }
+
+  .learn-button-text {
+    color: #fff;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 600px;
+    padding: 0 20px;
+  }
+
+  .hero-background {
+    height: 600px;
+  }
+
+  .hero-image {
+    width: 400px;
+    height: 267px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+  }
+
+  .hero-content {
+    width: 100%;
+    left: 0;
+    top: 300px;
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    width: 100%;
+    font-size: 28px;
+    left: 0;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #000;
+  }
+
+  .hero-description {
+    width: 100%;
+    font-size: 14px;
+    left: 0;
+    top: 80px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 10px;
+    color: #000;
+  }
+
+  .hero-buttons {
+    top: 160px;
+    left: 0;
+    display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 100%;
     align-items: center;
+    width: 100%;
   }
 
   .book-button,
   .learn-button {
-    width: 220px;
-    margin: 0;
+    position: relative;
+    left: 0;
+    width: 200px;
+  }
+
+  .book-button-bg,
+  .learn-button-bg {
+    width: 200px;
   }
 
   .book-button-text {
-    left: 50px;
+    left: 40px;
     width: 120px;
   }
 
   .learn-button-text {
-    left: 66px;
+    left: 56px;
     width: 88px;
-  }
-
-  .feature-cards {
-    width: 95%;
-    left: 2.5%;
-    bottom: 40px;
-    gap: 15px;
-    position: relative;
-    margin-top: 40px;
-  }
-
-  .feature-card {
-    height: 160px;
-  }
-
-  .feature-title {
-    font-size: 18px;
-    top: 80px;
-  }
-
-  .feature-description {
-    font-size: 13px;
-    top: 105px;
+    color: #000;
   }
 }
 
-@media (max-width: 480px) {
-  .hero-container {
-    min-height: 100vh;
-    padding: 10px 0;
+@media (max-width: 320px) {
+  .hero-section {
+    height: 550px;
+    padding: 0 10px;
   }
 
-  .bus-image {
-    width: 110%;
-    height: auto;
-    left: -5%;
-    top: 60px;
-    opacity: 0.7;
+  .hero-background {
+    height: 550px;
+  }
+
+  .hero-image {
+    width: 300px;
+    height: 200px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .hero-content {
-    width: 95%;
-    left: 2.5%;
-    top: 100px;
+    top: 220px;
     padding: 0 10px;
   }
 
   .hero-title {
     font-size: 24px;
-    line-height: 1.2;
-    margin-bottom: 15px;
+    line-height: 1.1;
+    color: #000;
   }
 
   .hero-description {
-    font-size: 14px;
-    margin-bottom: 25px;
-    padding: 0 10px;
+    font-size: 13px;
+    top: 70px;
+    line-height: 1.4;
+    color: #000;
   }
 
-  .action-buttons {
-    gap: 12px;
-    padding: 0 20px;
+  .hero-buttons {
+    top: 140px;
   }
 
   .book-button,
   .learn-button {
-    width: 200px;
-    height: 45px;
+    width: 180px;
   }
 
-  .book-button svg,
-  .learn-button svg {
-    width: 200px;
-    height: 45px;
+  .book-button-bg,
+  .learn-button-bg {
+    width: 180px;
   }
 
   .book-button-text {
-    left: 40px;
-    top: 12px;
+    left: 30px;
     width: 120px;
-    font-size: 14px;
   }
 
   .learn-button-text {
-    left: 56px;
-    top: 12px;
+    left: 46px;
     width: 88px;
-    font-size: 14px;
+    color: #000;
   }
+}
 
-  .feature-cards {
-    width: 100%;
-    left: 0;
-    bottom: 20px;
-    gap: 12px;
-    padding: 0 10px;
-  }
-
-  .feature-card {
-    height: 140px;
-    margin-bottom: 10px;
-  }
-
-  .feature-card-background svg {
-    width: 100%;
-    height: 140px;
-  }
-
-  .feature-icon {
-    left: calc(50% - 25px);
-    top: 15px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .feature-icon svg {
-    width: 50px;
-    height: 50px;
-  }
-
-  .feature-emoji {
-    left: 15px;
-    top: 15px;
-    font-size: 18px;
-  }
-
-  .feature-title {
-    font-size: 16px;
-    top: 70px;
-  }
-
-  .feature-description {
-    font-size: 11px;
-    top: 95px;
-    padding: 0 15px;
-    line-height: 1.3;
+@media screen and (max-width: 2050px) {
+  .hero-content {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    text-align: right;
   }
 }
