@@ -1,9 +1,15 @@
 import React from 'react';
 import './ClientHome.css';
+import Header from '../common/Header';
+import ClientHomeFeatures from '../clientHome/ClientHomeFatures';
+import Footer from '../common/Footer';
+
 
 const ClientHome: React.FC = () => {
   return (
-    <div className="hero-section">
+    <>
+    <Header />
+        <div className="hero-section">
       <div className="hero-background" />
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/dc92df75caa19d25511a419a1a5e2aa8a81f10c6?width=2266"
@@ -40,6 +46,10 @@ const ClientHome: React.FC = () => {
         </div>
       </div>
     </div>
+    <ClientHomeFeatures/>
+    <Footer />
+    </>
+
   );
 };
 
