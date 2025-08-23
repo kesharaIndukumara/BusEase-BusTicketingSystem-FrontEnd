@@ -3,6 +3,7 @@ import './ClientHome.css';
 import Header from '../common/Header';
 import ClientHomeFeatures from '../clientHome/ClientHomeFatures';
 import Footer from '../common/Footer';
+import ClientHomeRouts from './ClientHomeRout';
 
 
 const ClientHome: React.FC = () => {
@@ -47,6 +48,7 @@ const ClientHome: React.FC = () => {
       </div>
     </div>
     <ClientHomeFeatures/>
+    <ClientHomeRouts/>
     <Footer />
     </>
 
