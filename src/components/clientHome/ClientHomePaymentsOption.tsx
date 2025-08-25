@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./ClientHomePaymentsOption.css";
 
 function ClientHomePaymentsOption() {
   return (

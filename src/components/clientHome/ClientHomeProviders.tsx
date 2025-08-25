@@ -1,5 +1,4 @@
 import React from 'react';
-import './ClientHomeProviders.css';
 
 const ClientHomeProviders: React.FC = () => {
   return (

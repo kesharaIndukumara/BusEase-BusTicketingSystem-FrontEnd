@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./ClientHomeRout.css";
 
 function ClientHomeRout() {
   return (

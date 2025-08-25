@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./ClientHomeFatures.css";
 
 function ClientHomeFatures() {
   return (

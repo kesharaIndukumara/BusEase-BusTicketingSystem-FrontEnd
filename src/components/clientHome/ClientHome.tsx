@@ -1,5 +1,4 @@
 import React from 'react';
-import './ClientHome.css';
 import Header from '../common/Header';
 import ClientHomeFeatures from '../clientHome/ClientHomeFatures';
 import Footer from '../common/Footer';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './ClientHomeFeedback.css';
 
 const ClientHomeFeedback: React.FC = () => {
   const [formData, setFormData] = useState({

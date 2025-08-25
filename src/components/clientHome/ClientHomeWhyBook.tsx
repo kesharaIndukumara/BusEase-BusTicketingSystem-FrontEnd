@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./ClientHomeWhyBook.css";
 
 function ClientHomeWhyBook() {
   return (
