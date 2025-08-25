@@ -1,0 +1,389 @@
+.providers-container {
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  padding: 32px 0 122px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.providers-wrapper {
+  background-color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 24px 80px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.providers-title {
+  color: #1e3a8a;
+  text-align: center;
+  align-self: center;
+  font: 700 35px Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  margin-bottom: 54px;
+}
+
+.providers-logos {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.provider-logo-large {
+  aspect-ratio: 2.53;
+  object-fit: contain;
+  object-position: center;
+  width: 253px;
+  flex-shrink: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.providers-grid {
+  align-self: stretch;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  min-width: 0;
+}
+
+.providers-column {
+  gap: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.providers-row {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.provider-logo-square {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.provider-logo-wide {
+  aspect-ratio: 2;
+  object-fit: contain;
+  object-position: center;
+  width: 200px;
+  height: auto;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.provider-logo-bottom {
+  aspect-ratio: 4.02;
+  object-fit: contain;
+  object-position: center;
+  width: 402px;
+  height: auto;
+  align-self: flex-end;
+  margin-top: 19px;
+  max-width: 100%;
+}
+
+.providers-column-right {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  line-height: normal;
+  width: 23%;
+  margin-left: 20px;
+}
+
+.provider-logo-medium {
+  aspect-ratio: 1.37;
+  object-fit: contain;
+  object-position: center;
+  width: 137px;
+  height: auto;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+.provider-logo-right {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 991px) {
+  .providers-container {
+    padding: 40px 0 80px;
+  }
+
+  .providers-wrapper {
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  .providers-title {
+    max-width: 100%;
+    margin-bottom: 40px;
+    font-size: 30px;
+  }
+
+  .providers-logos {
+    max-width: 100%;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .providers-grid {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .providers-column {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .providers-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .providers-column-right {
+    width: 100%;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .provider-logo-medium {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .providers-container {
+    padding: 32px 0 60px;
+  }
+
+  .providers-wrapper {
+    padding: 20px 16px;
+  }
+
+  .providers-title {
+    font-size: 26px;
+    margin-bottom: 32px;
+    line-height: 1.3;
+    padding: 0 10px;
+  }
+
+  .providers-logos {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .providers-grid {
+    gap: 24px;
+  }
+
+  .providers-row {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    max-width: 320px;
+  }
+
+  .provider-logo-large {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .provider-logo-bottom {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 12px;
+  }
+
+  .provider-logo-square {
+    width: 70px;
+  }
+
+  .provider-logo-wide {
+    width: 140px;
+  }
+
+  .provider-logo-medium,
+  .provider-logo-right {
+    width: 90px;
+  }
+}
+
+@media (max-width: 640px) {
+  .providers-title {
+    font-size: 22px;
+    margin-bottom: 28px;
+  }
+
+  .providers-logos {
+    gap: 20px;
+  }
+
+  .providers-row {
+    max-width: 280px;
+    gap: 12px;
+  }
+
+  .provider-logo-square {
+    width: 60px;
+  }
+
+  .provider-logo-wide {
+    width: 120px;
+  }
+
+  .provider-logo-medium,
+  .provider-logo-right {
+    width: 80px;
+  }
+
+  .provider-logo-large,
+  .provider-logo-bottom {
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .providers-container {
+    padding: 24px 0 40px;
+  }
+
+  .providers-wrapper {
+    padding: 16px 12px;
+  }
+
+  .providers-title {
+    font-size: 20px;
+    margin-bottom: 24px;
+    line-height: 1.2;
+    padding: 0 8px;
+  }
+
+  .providers-logos {
+    gap: 16px;
+  }
+
+  .providers-grid {
+    gap: 16px;
+  }
+
+  .providers-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 200px;
+  }
+
+  .provider-logo-square,
+  .provider-logo-wide,
+  .provider-logo-medium,
+  .provider-logo-right {
+    width: 70px;
+  }
+
+  .provider-logo-large,
+  .provider-logo-bottom {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 375px) {
+  .providers-container {
+    padding: 20px 0 32px;
+  }
+
+  .providers-wrapper {
+    padding: 12px 8px;
+  }
+
+  .providers-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 0 4px;
+  }
+
+  .providers-logos {
+    gap: 12px;
+  }
+
+  .providers-row {
+    gap: 12px;
+    max-width: 180px;
+  }
+
+  .provider-logo-square,
+  .provider-logo-wide,
+  .provider-logo-medium,
+  .provider-logo-right {
+    width: 60px;
+  }
+
+  .provider-logo-large,
+  .provider-logo-bottom {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 320px) {
+  .providers-title {
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+
+  .providers-logos {
+    gap: 10px;
+  }
+
+  .providers-row {
+    gap: 10px;
+    max-width: 160px;
+  }
+
+  .provider-logo-square,
+  .provider-logo-wide,
+  .provider-logo-medium,
+  .provider-logo-right {
+    width: 50px;
+  }
+
+  .provider-logo-large,
+  .provider-logo-bottom {
+    max-width: 180px;
+  }
+}
