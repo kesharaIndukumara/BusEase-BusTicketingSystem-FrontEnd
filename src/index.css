@@ -416,10 +416,23 @@
 .providers-logos {
   display: flex;
   width: 100%;
-  align-items: flex-start;
-  gap: 100px;
-  flex-wrap: wrap;
   justify-content: center;
+  padding: 20px 0;
+}
+
+.providers-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.providers-row {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
 .provider-logo-large {
@@ -430,14 +443,35 @@
   flex-shrink: 0;
   max-width: 100%;
   height: auto;
+  transition: transform 0.3s ease;
 }
 
-.providers-grid {
-  align-self: stretch;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  min-width: 0;
+.provider-logo-large:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .providers-grid {
+    gap: 30px;
+  }
+
+  .providers-row {
+    gap: 30px;
+  }
+
+  .provider-logo-large {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .providers-row {
+    gap: 20px;
+  }
+
+  .provider-logo-large {
+    width: 150px;
+  }
 }
 
 /* Routes Section Styles */
