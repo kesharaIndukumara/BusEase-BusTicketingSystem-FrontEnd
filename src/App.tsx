@@ -1,7 +1,7 @@
 import ClientHome from './components/clientHome/ClientHome'
 import { BrowserRouter, Route, Routes } from "react-router";
-import Footer from './components/common/Footer'
 import Header from './components/common/Header'
+import Login from './components/common/logIn/login';
 
 function App() {
   return (
@@ -10,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ClientHome/>}></Route>
         <Route path="/header" element={<Header/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
       </Routes>
     </BrowserRouter>,
     </>
