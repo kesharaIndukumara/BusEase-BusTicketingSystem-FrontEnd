@@ -12,10 +12,11 @@
   display: flex;
   width: 100%;
   align-items: stretch;
-  gap: 20px;
+  gap: clamp(10px, 2vw, 20px);
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px 40px 20px 80px;
+  min-height: clamp(60px, 8vh, 80px);
+  padding: clamp(10px, 2vh, 20px) clamp(20px, 4vw, 40px) clamp(10px, 2vh, 20px) clamp(40px, 8vw, 80px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
 }
@@ -36,13 +37,13 @@
   flex-direction: column;
   position: relative;
   aspect-ratio: 1;
-  width: 100px;
+  width: clamp(35px, 8vw, 100px);
   align-items: start;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   color: rgba(30, 58, 138, 1);
   text-align: center;
   justify-content: center;
-  padding: 10px 8px;
+  padding: clamp(6px, 1vh, 10px) clamp(4px, 1vw, 8px);
 }
 
 .logo-background {
@@ -97,8 +98,8 @@
 .navigation-links {
   display: flex;
   align-items: stretch;
-  gap: 36px;
-  font-size: 16px;
+  gap: clamp(20px, 3vw, 36px);
+  font-size: clamp(14px, 1.2vw, 16px);
   color: rgba(255, 255, 255, 1);
   font-weight: 400;
   white-space: nowrap;
@@ -121,16 +122,16 @@
   flex-direction: column;
   align-self: start;
   position: absolute;
-  right: 40px;
+  right: clamp(20px, 4vw, 40px);
   top: 50%;
   transform: translateY(-50%);
   aspect-ratio: 3.429;
   align-items: stretch;
-  font-size: 14px;
+  font-size: clamp(12px, 1.1vw, 14px);
   color: rgba(30, 58, 138, 1);
   text-align: center;
   justify-content: center;
-  padding: 10px 36px;
+  padding: clamp(8px, 1vh, 10px) clamp(24px, 3vw, 36px);
   cursor: pointer;
   transition: transform 0.3s ease;
   border-radius: 25px;
@@ -211,17 +212,17 @@
     left: auto;
     top: auto;
   }
-  
+
   .logo-icon {
     width: 35px;
     font-size: 18px;
     padding: 8px 6px;
   }
-  
+
   .brand-name {
     font-size: 18px;
   }
-  
+
   .navigation-links {
     position: absolute;
     top: 100%;
@@ -239,24 +240,24 @@
     transition: all 0.3s ease;
     z-index: 1000;
   }
-  
+
   .navigation-links.mobile-open {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
   }
-  
+
   .nav-link {
     padding: 15px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     font-size: 16px;
   }
-  
+
   .nav-link:last-of-type {
     border-bottom: none;
   }
-  
+
   .mobile-signin {
     display: flex;
     margin: 20px auto 0;
@@ -264,7 +265,7 @@
     margin-top: 20px;
     width: fit-content;
   }
-  
+
   .desktop-signin {
     display: none;
   }
@@ -275,25 +276,25 @@
   .navbar-content {
     padding: 12px 15px;
   }
-  
+
   .logo-section {
     gap: 10px;
   }
-  
+
   .logo-icon {
     width: 30px;
     font-size: 16px;
     padding: 6px 4px;
   }
-  
+
   .brand-name {
     font-size: 16px;
   }
-  
+
   .navigation-links {
     padding: 15px;
   }
-  
+
   .nav-link {
     padding: 12px 0;
     font-size: 14px;
@@ -305,11 +306,11 @@
   .navbar-content {
     padding: 10px 12px;
   }
-  
+
   .brand-name {
     font-size: 14px;
   }
-  
+
   .logo-icon {
     width: 28px;
     font-size: 14px;
