@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Footer from '../common/Footer';
 
 const ClientHomeFeedback: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +23,7 @@ const ClientHomeFeedback: React.FC = () => {
   };
 
   return (
+    <>
     <div className="feedback-container">
       <div className="feedback-section">
         <div className="feedback-content">
@@ -84,6 +86,8 @@ const ClientHomeFeedback: React.FC = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

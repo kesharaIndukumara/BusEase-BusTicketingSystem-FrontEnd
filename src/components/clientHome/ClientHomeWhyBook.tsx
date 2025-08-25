@@ -1,5 +1,8 @@
+import ClientHomeFeedback from "./ClientHomeFeedback";
+
 function ClientHomeWhyBook() {
   return (
+    <>
     <div className="why-book-container">
       <div className="why-book-background">
         <svg width="1440" height="298" viewBox="0 0 1440 298" fill="none" xmlns="http://www.w3.org/2000/svg" className="background-overlay">
@@ -69,6 +72,8 @@ function ClientHomeWhyBook() {
         </div>
       </div>
     </div>
+    <ClientHomeFeedback />
+    </>
   );
 }
 

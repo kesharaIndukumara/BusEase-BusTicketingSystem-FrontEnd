@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '../common/Header';
 import ClientHomeFeatures from '../clientHome/ClientHomeFatures';
 import Footer from '../common/Footer';
-import ClientHomeRouts from './ClientHomeRout';
 import ClientHomeWhyBook from './ClientHomeWhyBook';
 import ClientHomeFeedback from './ClientHomeFeedback';
 import ClientHomeProviders from './ClientHomeProviders';
@@ -51,12 +50,6 @@ const ClientHome: React.FC = () => {
       </div>
     </div>
     <ClientHomeFeatures/>
-    <ClientHomeRouts/>
-    <ClientHomeProviders />
-    <ClientHomePaymentsOption />
-    <ClientHomeWhyBook />
-    <ClientHomeFeedback />
-    <Footer />
     </>
 
   );

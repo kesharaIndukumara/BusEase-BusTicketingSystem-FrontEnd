@@ -1,7 +1,9 @@
 import React from 'react';
+import ClientHomePaymentsOption from './ClientHomePaymentsOption';
 
 const ClientHomeProviders: React.FC = () => {
   return (
+    <>
     <div className="providers-container">
       <div className="providers-wrapper">
         <div className="providers-title">
@@ -47,6 +49,8 @@ const ClientHomeProviders: React.FC = () => {
         </div>
       </div>
     </div>
+    <ClientHomePaymentsOption />
+    </>
   );
 };
 

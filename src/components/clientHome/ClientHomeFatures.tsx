@@ -1,7 +1,9 @@
 import * as React from "react";
+import ClientHomeRoutes from "./ClientHomeRout";
 
 function ClientHomeFatures() {
   return (
+    <>
     <div className="features-container">
       <div className="features-wrapper">
         <div className="feature-card">
@@ -65,6 +67,8 @@ function ClientHomeFatures() {
         </div>
       </div>
     </div>
+    <ClientHomeRoutes/>
+    </>
   );
 }
 

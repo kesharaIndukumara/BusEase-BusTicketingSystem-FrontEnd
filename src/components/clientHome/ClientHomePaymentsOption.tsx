@@ -1,7 +1,9 @@
 import * as React from "react";
+import ClientHomeWhyBook from "./ClientHomeWhyBook";
 
 function ClientHomePaymentsOption() {
   return (
+    <>
     <div className="payment-options-container">
       <div className="payment-options-wrapper">
         <div className="payment-title-container">
@@ -38,6 +40,8 @@ function ClientHomePaymentsOption() {
         </div>
       </div>
     </div>
+    <ClientHomeWhyBook />
+    </>
   );
 }
 

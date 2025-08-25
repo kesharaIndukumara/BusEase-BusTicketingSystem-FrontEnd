@@ -1,6 +1,8 @@
+import ClientHomeProviders from "./ClientHomeProviders";
 
 function ClientHomeRout() {
   return (
+    <>
     <div className="routes-container">
       <div className="routes-wrapper">
         <div className="route-card">
@@ -108,6 +110,8 @@ function ClientHomeRout() {
         </div>
       </div>
     </div>
+    <ClientHomeProviders />
+    </>
   );
 }
 
