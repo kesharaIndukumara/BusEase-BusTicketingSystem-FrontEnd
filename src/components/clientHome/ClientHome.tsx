@@ -4,10 +4,10 @@ import Header from '../common/Header';
 import ClientHomeFeatures from '../clientHome/ClientHomeFatures';
 import Footer from '../common/Footer';
 import ClientHomeRouts from './ClientHomeRout';
-import ClientHomePayments from '../clientHome/ClientHomePayments';
 import ClientHomeWhyBook from './ClientHomeWhyBook';
 import ClientHomeFeedback from './ClientHomeFeedback';
 import ClientHomeProviders from './ClientHomeProviders';
+import ClientHomePaymentsOption from './ClientHomePaymentsOption';
 
 
 const ClientHome: React.FC = () => {
@@ -53,8 +53,8 @@ const ClientHome: React.FC = () => {
     </div>
     <ClientHomeFeatures/>
     <ClientHomeRouts/>
-    {/* <ClientHomePayments /> */}
     <ClientHomeProviders />
+    <ClientHomePaymentsOption />
     <ClientHomeWhyBook />
     <ClientHomeFeedback />
     <Footer />
