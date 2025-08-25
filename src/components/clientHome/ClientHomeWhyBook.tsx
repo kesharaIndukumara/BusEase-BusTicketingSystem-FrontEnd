@@ -1,5 +1,3 @@
-import * as React from "react";
-
 function ClientHomeWhyBook() {
   return (
     <div className="why-book-container">
