@@ -26,6 +26,9 @@
   font: 700 35px Arial, -apple-system, Roboto, Helvetica, sans-serif;
   line-height: 1.2;
   margin-bottom: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .feedback-form {
@@ -39,10 +42,11 @@
 
 .form-row {
   display: flex;
-  align-items: stretch;
-  gap: 40px 86px;
+  align-items: center;
+  gap: 20px;
   font: 14px Arial, -apple-system, Roboto, Helvetica, sans-serif;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .form-row:last-of-type {
@@ -52,8 +56,9 @@
 .form-label {
   color: rgba(255, 255, 255, 1);
   font-weight: 700;
-  margin: auto 0;
+  margin: 0;
   white-space: nowrap;
+  width: 100px;
 }
 
 .input-wrapper,
@@ -64,9 +69,7 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: 0;
+  width: calc(100% - 120px);
 }
 
 .form-input {
@@ -118,13 +121,13 @@
 }
 
 .feedback-row .form-label {
-  width: 16%;
-  margin-top: 12px;
+  width: 100px;
+  margin-top: 0;
 }
 
 .feedback-row .textarea-wrapper {
-  width: 84%;
-  margin-left: 20px;
+  width: calc(100% - 120px);
+  margin-left: 0;
 }
 
 .submit-container {
