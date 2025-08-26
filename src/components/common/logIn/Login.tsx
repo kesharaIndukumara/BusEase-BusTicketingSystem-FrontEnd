@@ -20,16 +20,15 @@ const Login: React.FC = () => {
   return (
     <div className="w-screen min-h-screen relative flex items-center justify-center font-['Inter',sans-serif] overflow-hidden bg-blue-600 px-4 py-6 sm:px-6 sm:py-8">
       <div className="absolute w-full h-full top-0 left-0 z-[1]" />
-
       <div className="rounded-2xl p-8 w-full max-w-md relative z-[2] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] bg-white md:p-10 lg:p-12 lg:max-w-lg">
 
         {/* Logo and Title Section */}
-        <div className="text-center mb-8 sm:mb-10">
+        <div className="text-center mb-10 sm:mb-10">
           <div className="flex justify-center mb-4">
             <img 
               src="/src/assets/img/BusEase-logo-dark.png" 
               alt="BusEase Logo" 
-              className="h-24 w-auto sm:h-28" // Increased from h-16 to h-24 and added larger size for sm breakpoint
+              className="h-16 w-auto sm:h-44" // Increased from h-16 to h-44 and added larger size for sm breakpoint
             />
           </div>
           <div className="text-sm text-gray-500">
@@ -133,7 +132,7 @@ const Login: React.FC = () => {
       </div>
 
       {/* Footer Copyright */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-white/70 z-[2] px-4 text-center leading-relaxed sm:bottom-6 sm:text-xs">
+      <div className="fixed bottom-4 left-0 right-0 text-xs text-white/70 z-[2] px-4 text-center leading-relaxed sm:bottom-6 sm:text-sm w-full">
         © 2024 BusEase Ticketing System. All rights reserved.
       </div>
     </div>
