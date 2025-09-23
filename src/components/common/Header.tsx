@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css";
 import BusEaseLogo from '../../assets/img/BusEase-logo.png';
+import { Link } from "react-router";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +52,8 @@ function Header() {
               alt="Sign In Button Background"
               className="signin-background"
             />
-            <div className="signin-text">Sign In</div>
+            <div className="signin-text"><Link to="/login">Sign In</Link></div>
+             {/* <Link to="/dashboard">Sign In</Link>; */}
           </div>
         </div>
       </div>
