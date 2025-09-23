@@ -140,7 +140,7 @@ const Login: React.FC = () => {
       </div>
 
       {/* Footer Copyright */}
-      <div className="fixed bottom-4 left-0 right-0 text-xs text-white/70 z-[2] px-4 text-center leading-relaxed sm:bottom-6 sm:text-sm w-full">
+      <div className="text-xs text-white/70 z-[2] px-4 text-center leading-relaxed sm:text-sm py-4">
         © 2024 BusEase Ticketing System. All rights reserved.
       </div>
     </div>
