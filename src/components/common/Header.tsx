@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css";
 import BusEaseLogo from '../../assets/img/BusEase-logo.png';
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,17 +32,17 @@ function Header() {
           </div>
 
           <nav className={`navigation-links ${isMenuOpen ? 'mobile-open' : ''}`} style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '2rem' }}>
-            <div className="nav-link">Home</div>
-            <div className="nav-link">Features</div>
-            <div className="nav-link">Reviews</div>
-            <div className="nav-link">Contact</div>
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/features" className="nav-link">Features</Link>
+            <Link to="/reviews" className="nav-link">Reviews</Link>
+            <Link to="/contact" className="nav-link">Contact</Link>
             <div className="signin-button mobile-signin">
               <img
                 src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
                 alt="Sign In Button Background"
                 className="signin-background"
               />
-              <div className="signin-text">Sign In</div>
+              <Link to="/login" className="signin-text">Sign In</Link>
             </div>
           </nav>
 
@@ -52,8 +52,7 @@ function Header() {
               alt="Sign In Button Background"
               className="signin-background"
             />
-            <div className="signin-text"><Link to="/login">Sign In</Link></div>
-             {/* <Link to="/dashboard">Sign In</Link>; */}
+            <Link to="/login" className="signin-text">Sign In</Link>
           </div>
         </div>
       </div>

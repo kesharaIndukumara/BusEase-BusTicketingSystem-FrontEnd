@@ -1,11 +1,6 @@
 import React from 'react';
 import Header from '../common/Header';
 import ClientHomeFeatures from '../clientHome/ClientHomeFatures';
-import Footer from '../common/Footer';
-import ClientHomeWhyBook from './ClientHomeWhyBook';
-import ClientHomeFeedback from './ClientHomeFeedback';
-import ClientHomeProviders from './ClientHomeProviders';
-import ClientHomePaymentsOption from './ClientHomePaymentsOption';
 
 
 const ClientHome: React.FC = () => {

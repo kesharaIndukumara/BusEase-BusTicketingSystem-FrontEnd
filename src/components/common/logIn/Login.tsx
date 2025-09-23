@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import Header from '../Header.tsx';
 
 
@@ -132,9 +132,12 @@ const Login: React.FC = () => {
             <div className="text-sm text-gray-500 mb-2">
               Don't have an account?
             </div>
-            <div className="text-sm text-blue-500 cursor-pointer hover:text-blue-600 transition-colors touch-manipulation py-1">
+            <Link 
+              to="/signup" 
+              className="text-sm text-blue-500 cursor-pointer hover:text-blue-600 transition-colors touch-manipulation py-1 inline-block"
+            >
               Sign up here
-            </div>
+            </Link>
           </div>
         </div>
       </div>
