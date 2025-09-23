@@ -42,7 +42,7 @@ function Header() {
                 alt="Sign In Button Background"
                 className="signin-background"
               />
-              <Link to="/login" className="signin-text">Sign In</Link>
+              <Link to="/login" className="signin-text">Log In</Link>
             </div>
           </nav>
 
@@ -52,7 +52,7 @@ function Header() {
               alt="Sign In Button Background"
               className="signin-background"
             />
-            <Link to="/login" className="signin-text">Sign In</Link>
+            <Link to="/login" className="signin-text">Log In</Link>
           </div>
         </div>
       </div>

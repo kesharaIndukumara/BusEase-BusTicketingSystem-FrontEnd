@@ -22,7 +22,9 @@ const Login: React.FC = () => {
 
   return (
     <div className="w-screen min-h-screen relative flex flex-col font-['Inter',sans-serif] overflow-hidden bg-blue-600">
-      <Header />
+      <div className="relative z-[10]">
+        <Header />
+      </div>
       
       <div className="flex-1 flex items-center justify-center px-4 py-6 sm:px-6 sm:py-8">
         <div className="absolute w-full h-full top-0 left-0 z-[1]" />
