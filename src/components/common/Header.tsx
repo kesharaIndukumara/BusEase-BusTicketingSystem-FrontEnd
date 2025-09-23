@@ -33,6 +33,7 @@ function Header() {
 
           <nav className={`navigation-links ${isMenuOpen ? 'mobile-open' : ''}`} style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '2rem' }}>
             <Link to="/" className="nav-link">Home</Link>
+            <Link to="/book-trip" className="nav-link">Book Trip</Link>
             <Link to="/features" className="nav-link">Features</Link>
             <Link to="/reviews" className="nav-link">Reviews</Link>
             <Link to="/contact" className="nav-link">Contact</Link>

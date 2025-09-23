@@ -1,0 +1,374 @@
+/* Trip Booking Container */
+.trip-booking-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1e3a8a;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.trip-booking-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.trip-booking-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.trip-booking-title {
+  color: #fff;
+  font: 700 42px Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.trip-booking-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font: 400 18px Arial, -apple-system, Roboto, Helvetica, sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Routes Selection */
+.routes-selection {
+  width: 100%;
+}
+
+.routes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Route Booking Cards */
+.route-booking-card {
+  width: 320px;
+  min-height: 220px;
+  border: 2px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.route-booking-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.route-id {
+  color: #1e3a8a;
+  font: 700 16px Arial, sans-serif;
+}
+
+.available-seats {
+  background-color: #f0f9ff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+}
+
+.seats-indicator {
+  color: #1e3a8a;
+  font: 600 12px Arial, sans-serif;
+}
+
+.seats-indicator.low-seats {
+  color: #dc2626;
+  background-color: #fef2f2;
+  border-color: #fecaca;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.route-name {
+  color: #374151;
+  margin-bottom: 8px;
+  font: 700 20px Arial, sans-serif;
+  line-height: 1.3;
+}
+
+.route-service {
+  color: #64748b;
+  margin-bottom: 12px;
+  font: 400 14px Arial, sans-serif;
+}
+
+.route-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.route-duration,
+.route-departure {
+  color: #64748b;
+  font: 400 13px Arial, sans-serif;
+}
+
+.route-fare {
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  font: 700 16px Arial, sans-serif;
+}
+
+.book-button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 24px;
+}
+
+.select-route-button {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font: 600 14px Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.select-route-button:hover:not(:disabled) {
+  background-color: #1e4199;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.select-route-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.select-route-text {
+  color: white;
+}
+
+/* Booking Form Container */
+.booking-form-container {
+  background-color: white;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Selected Route Summary */
+.selected-route-summary {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-title {
+  color: #1e3a8a;
+  font: 700 18px Arial, sans-serif;
+  margin-bottom: 12px;
+}
+
+.summary-route {
+  color: #374151;
+  font: 700 16px Arial, sans-serif;
+  margin-bottom: 8px;
+}
+
+.summary-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.summary-info span {
+  color: #64748b;
+  font: 400 14px Arial, sans-serif;
+}
+
+/* Booking Form */
+.booking-form {
+  width: 100%;
+}
+
+.form-title {
+  color: #1e3a8a;
+  font: 700 20px Arial, sans-serif;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  color: #374151;
+  font: 600 14px Arial, sans-serif;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font: 400 16px Arial, sans-serif;
+  color: #374151;
+  background-color: white;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.form-input:invalid {
+  border-color: #dc2626;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cancel-button {
+  background-color: #f8fafc;
+  color: #64748b;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font: 600 16px Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.confirm-booking-button {
+  background-color: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font: 600 16px Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.confirm-booking-button:hover {
+  background-color: #1e4199;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .routes-grid {
+    gap: 20px;
+  }
+
+  .route-booking-card {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .trip-booking-container {
+    padding: 20px 0;
+  }
+
+  .trip-booking-wrapper {
+    padding: 0 15px;
+  }
+
+  .trip-booking-title {
+    font-size: 32px;
+  }
+
+  .trip-booking-subtitle {
+    font-size: 16px;
+  }
+
+  .routes-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .route-booking-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .booking-form-container {
+    padding: 25px;
+    margin: 0 10px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cancel-button,
+  .confirm-booking-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .trip-booking-title {
+    font-size: 28px;
+  }
+
+  .route-booking-card {
+    padding: 20px;
+  }
+
+  .route-details {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .booking-form-container {
+    padding: 20px;
+  }
+
+  .summary-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
