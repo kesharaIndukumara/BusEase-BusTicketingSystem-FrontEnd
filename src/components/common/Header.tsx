@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import BusEaseLogo from '../../assets/img/BusEase-logo.png';
 import { Link } from "react-router-dom";
+import { Button } from "flowbite-react";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,48 +47,55 @@ function Header() {
             <Link to="/reviews" className="nav-link">Reviews</Link>
             <Link to="/contact" className="nav-link">Contact</Link>
             <div className="mobile-auth-buttons">
-              <div className="signin-button mobile-signin">
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
-                  alt="Sign In Button Background"
-                  className="signin-background"
-                />
-                <Link to="/login" className="signin-text">Log In</Link>
-              </div>
-              <div className="signin-button mobile-signin">
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
-                  alt="Sign In Button Background"
-                  className="signin-background"
-                />
-                <Link to="/signin" className="signin-text">Sign in</Link>
-              </div>
+              <Link to="/login" className="nav-link">
+                <div className="signin-button mobile-signin">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
+                    alt="Sign In Button Background"
+                    className="signin-background"
+                  />
+                  <span className="signin-text">Log In</span>
+                </div>
+              </Link>
+              <Link to="/signin" className="nav-link">
+                <div className="signin-button mobile-signin">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
+                    alt="Sign In Button Background"
+                    className="signin-background"
+                  />
+                  <span className="signin-text">Sign in</span>
+                </div>
+              </Link>
             </div>
           </nav>
 
           <div className="auth-buttons-container">
-            <div className="signin-button desktop-signin">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
-                alt="Sign In Button Background"
-                className="signin-background"
-              />
-              <Link to="/login" className="signin-text">Log In</Link>
-            </div>
-            
-            <div className="signin-button desktop-signin">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
-                alt="Sign In Button Background"
-                className="signin-background"
-              />
-              <Link to="/signin" className="signin-text">Sign in</Link>
-            </div>
+            <Link to="/login" className="nav-link">
+              <div className="signin-button desktop-signin">
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
+                  alt="Sign In Button Background"
+                  className="signin-background"
+                />
+                <span className="signin-text">Log In</span>
+              </div>
+            </Link>
+            <Link to="/signin" className="nav-link">
+              <div className="signin-button desktop-signin">
+                <img
+                  src="https://api.builder.io/api/v1/image/assets/TEMP/a8c983ca35bcf602cd03955ba00c7b241b50e8cc?placeholderIfAbsent=true"
+                  alt="Sign In Button Background"
+                  className="signin-background"
+                />
+                <span className="signin-text">Sign in</span>
+              </div>
+            </Link>
           </div>
           
         </div>
       </div>
-    </div>
+    </div>  
   );
 }
 

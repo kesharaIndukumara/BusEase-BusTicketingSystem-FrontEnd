@@ -27,30 +27,30 @@ const Login: React.FC = () => {
 
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-4 py-6 sm:px-6 sm:py-8">
+      <div className="flex-1 flex items-center justify-center px-4 py-2 sm:px-6 sm:py-4">
         <div className="absolute w-full h-full top-0 left-0 z-[1]" />
-        <div className="rounded-2xl p-8 w-full max-w-md relative z-[2] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] bg-white md:p-10 lg:p-12 lg:max-w-lg">
+        <div className="rounded-2xl p-6 w-full max-w-md relative z-[2] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] bg-white md:p-8 lg:max-w-lg">
 
           {/* Logo and Title Section */}
-          <div className="text-center mb-10 sm:mb-10">
-            <div className="flex justify-center mb-4">
+          <div className="text-center mb-6 sm:mb-6">
+            <div className="flex justify-center mb-2">
               <img
                 src="/src/assets/img/BusEase-logo-dark.png"
                 alt="BusEase Logo"
-                className="h-16 w-auto sm:h-44" // Increased from h-16 to h-44 and added larger size for sm breakpoint
+                className="h-12 w-auto sm:h-16"
               />
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-xs text-gray-500 sm:text-sm">
               Your Journey, Our Priority
             </div>
           </div>
 
           {/* Role Selection Tabs */}
-          <div className="flex mb-6 rounded-lg p-1 bg-gray-100 sm:mb-8 sm:flex-row">
+          <div className="flex mb-4 rounded-lg p-1 bg-gray-100 sm:mb-5">
             {(['USER', 'BUS OWNER', 'ADMIN'] as const).map((role) => (
               <div
                 key={role}
-                className={`flex-1 text-center py-2.5 px-2 text-xs font-medium rounded-md cursor-pointer transition-all duration-200 touch-manipulation sm:py-3 sm:px-4 sm:text-sm ${selectedRole === role
+                className={`flex-1 text-center py-2 px-2 text-xs font-medium rounded-md cursor-pointer transition-all duration-200 touch-manipulation sm:py-2.5 sm:px-3 sm:text-sm ${selectedRole === role
                     ? 'bg-white text-blue-600 shadow-sm'
                     : 'text-gray-600 hover:text-gray-800'}`}
                 onClick={() => handleRoleSelect(role)}
@@ -63,8 +63,8 @@ const Login: React.FC = () => {
           {/* Login Form */}
           <form onSubmit={handleSubmit}>
             {/* Email Field */}
-            <div className="mb-5 sm:mb-6">
-              <div className="text-sm font-medium text-gray-700 mb-2">
+            <div className="mb-4 sm:mb-4">
+              <div className="text-sm font-medium text-gray-700 mb-1.5">
                 Email Address
               </div>
               <input
@@ -72,13 +72,13 @@ const Login: React.FC = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full py-3 px-4 border border-gray-300 rounded-lg text-base text-gray-900 transition-all duration-200 box-border bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="w-full py-2.5 px-3 border border-gray-300 rounded-lg text-sm text-gray-900 transition-all duration-200 box-border bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 required />
             </div>
 
             {/* Password Field */}
-            <div className="mb-5 sm:mb-6">
-              <div className="text-sm font-medium text-gray-700 mb-2">
+            <div className="mb-4 sm:mb-4">
+              <div className="text-sm font-medium text-gray-700 mb-1.5">
                 Password
               </div>
               <div className="relative">
@@ -87,10 +87,10 @@ const Login: React.FC = () => {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full py-3 px-4 pr-12 border border-gray-300 rounded-lg text-base text-gray-900 transition-all duration-200 box-border bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="w-full py-2.5 px-3 pr-10 border border-gray-300 rounded-lg text-sm text-gray-900 transition-all duration-200 box-border bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   required />
                 <div
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer text-lg touch-manipulation p-1"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer text-base touch-manipulation p-1"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? '👁️' : '👁️‍🗨️'}
@@ -99,27 +99,26 @@ const Login: React.FC = () => {
             </div>
 
             {/* Remember Me and Forgot Password */}
-            <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:justify-between sm:items-center sm:mb-8">
+            <div className="flex flex-col gap-2 mb-4 sm:flex-row sm:justify-between sm:items-center sm:mb-5">
               <div className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-5 h-5 accent-blue-500 touch-manipulation sm:w-4 sm:h-4" />
+                  className="w-4 h-4 accent-blue-500 touch-manipulation" />
                 <div className="text-sm text-gray-700">
                   Remember me
                 </div>
               </div>
               <div className="text-sm text-blue-500 cursor-pointer hover:text-blue-600 transition-colors touch-manipulation py-1">
                 <Link to="/ForgotPassword">Forgot Password?</Link>
-
               </div>
             </div>
 
             {/* Sign In Button */}
             <button
               type="submit"
-              className="w-full text-white border-none rounded-lg py-4 text-base font-medium cursor-pointer transition-all duration-200 mb-6 bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 touch-manipulation active:scale-98 sm:py-3.5"
+              className="w-full text-white border-none rounded-lg py-3 text-sm font-medium cursor-pointer transition-all duration-200 mb-4 bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 touch-manipulation active:scale-98"
             >
               Log In
             </button>
@@ -127,7 +126,7 @@ const Login: React.FC = () => {
 
           {/* Sign Up Link */}
           <div className="text-center">
-            <div className="text-sm text-gray-500 mb-2">
+            <div className="text-sm text-gray-500 mb-1">
               Don't have an account?
             </div>
             <Link
@@ -137,15 +136,17 @@ const Login: React.FC = () => {
               Sign up here
             </Link>
           </div>
+
+          {/* Footer Copyright */}
+          <div className="text-xs text-gray-500 text-center leading-relaxed pt-4 mt-4 border-t border-gray-200">
+            © 2024 BusEase Ticketing System. All rights reserved.
+          </div>
         </div>
       </div>
 
-      {/* Footer Copyright */}
-      <div className="text-xs text-white/70 z-[2] px-4 text-center leading-relaxed sm:text-sm py-4">
-        © 2024 BusEase Ticketing System. All rights reserved.
-      </div>
     </div></>
   );
 };
 
 export default Login;
+
