@@ -1,23 +1,61 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from '../Header.tsx';
 
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState<'USER' | 'BUS OWNER' | 'ADMIN'>('USER');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleRoleSelect = (role: 'USER' | 'BUS OWNER' | 'ADMIN') => {
     setSelectedRole(role);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Login attempt:', { email, password, role: selectedRole, rememberMe });
+    setIsLoading(true);
+    setError('');
+
+    console.log('Sending login request with:', { email, password, role: selectedRole });
+
+    try {
+      const response = await fetch('http://localhost:8081/busOwner/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          role: selectedRole
+        }),
+      });
+
+      console.log('Response received:', response.status, response.statusText);
+
+      if (response.ok) {
+        // Backend returns plain text "Login Successful", no need to parse JSON
+        const responseText = await response.text();
+        console.log('Response text:', responseText);
+        
+        // Simple redirect to dashboard on successful login
+        navigate('/dashboard');
+      } else {
+        const errorText = await response.text();
+        setError(errorText || 'Login failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Login error details:', error);
+      setError('Cannot connect to server. Please check your connection and try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -62,6 +100,13 @@ const Login: React.FC = () => {
 
           {/* Login Form */}
           <form onSubmit={handleSubmit}>
+            {/* Error Message */}
+            {error && (
+              <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
+
             {/* Email Field */}
             <div className="mb-4 sm:mb-4">
               <div className="text-sm font-medium text-gray-700 mb-1.5">
@@ -118,9 +163,10 @@ const Login: React.FC = () => {
             {/* Sign In Button */}
             <button
               type="submit"
-              className="w-full text-white border-none rounded-lg py-3 text-sm font-medium cursor-pointer transition-all duration-200 mb-4 bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 touch-manipulation active:scale-98"
+              disabled={isLoading}
+              className="w-full text-white border-none rounded-lg py-3 text-sm font-medium cursor-pointer transition-all duration-200 mb-4 bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 touch-manipulation active:scale-98 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Log In
+              {isLoading ? 'Logging In...' : 'Log In'}
             </button>
           </form>
 
@@ -148,5 +194,6 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
 
+export default Login;
+           
