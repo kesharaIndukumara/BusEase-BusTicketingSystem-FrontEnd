@@ -1,14 +1,21 @@
 import React from 'react';
 import Header from '../common/Header';
 
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const UserRegistration: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'USER' | 'BUS OWNER'>('USER');
+  const navigate = useNavigate();
   return (
     <><Header /><div className="user-registration-container" style={{ marginTop: '120px' }}>
       <div className="registration-background-overlay" />
-      <div className="registration-card">
+      <div className="registration-card" style={{ maxWidth: '800px', margin: '0 auto' }}>
         <div className="registration-logo-container">
-          <div className="registration-logo-blue" />
-          <div className="registration-logo-orange" />
+          <img 
+            src="src/assets/img/BusEase-logo-dark.png" 
+            alt="BusEase Logo" 
+            className="registration-logo" style={{width: '150px', height: '150px'}}
+          />
         </div>
         <div className="registration-title">
           User Registration
@@ -16,68 +23,99 @@ const UserRegistration: React.FC = () => {
         <div className="registration-subtitle">
           Create your BusEase account
         </div>
-        <div className="registration-form">
-          <div className="form-field">
-            <div className="field-label">
-              Full Name
+        <div className="flex justify-center mb-8">
+  <div className="bg-white rounded-lg p-1 shadow-sm border">
+    <button
+      className={`px-6 py-2 rounded-md font-medium transition-colors ${
+        activeTab === 'USER' 
+          ? 'bg-blue-50 text-blue-600 border border-blue-200' 
+          : 'text-gray-500 hover:text-gray-700'
+      }`}
+      onClick={() => navigate("/signin_user")}
+    >
+      USER
+    </button>
+    <button
+      className={`px-6 py-2 rounded-md font-medium transition-colors ${
+        activeTab === 'BUS OWNER' 
+          ? 'bg-blue-50 text-blue-600 border border-blue-200' 
+          : 'text-gray-500 hover:text-gray-700'
+      }`}
+      onClick={() => navigate("/signin")}
+    >
+      BUS OWNER
+    </button>
+  </div>
+</div>
+        <div className="registration-form" style={{ width: '100%', padding: '0 20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div className="form-field">
+              <div className="field-label">
+                Full Name
+              </div>
+              <input
+                type="text"
+                placeholder="Enter full name"
+                className="form-input-field" />
             </div>
-            <input
-              type="text"
-              placeholder="Enter full name"
-              className="form-input-field" />
-          </div>
-          <div className="form-field">
-            <div className="field-label">
-              Username
+            <div className="form-field">
+              <div className="field-label">
+                Username
+              </div>
+              <input
+                type="text"
+                placeholder="Choose a username"
+                className="form-input-field" />
             </div>
-            <input
-              type="text"
-              placeholder="Choose a username"
-              className="form-input-field" />
-          </div>
-          <div className="form-field">
-            <div className="field-label">
-              Password
+            <div className="form-field">
+              <div className="field-label">
+                Password
+              </div>
+              <input
+                type="password"
+                placeholder="Enter a strong password"
+                className="form-input-field" />
             </div>
-            <input
-              type="password"
-              placeholder="Enter a strong password"
-              className="form-input-field" />
-          </div>
-          <div className="form-field">
-            <div className="field-label">
-              Email Address
+            <div className="form-field">
+              <div className="field-label">
+                Email Address
+              </div>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="form-input-field" />
             </div>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="form-input-field" />
-          </div>
-          <div className="form-field">
-            <div className="field-label">
-              NIC Number
+            <div className="form-field">
+              <div className="field-label">
+                NIC Number
+              </div>
+              <input
+                type="text"
+                placeholder="e.g., 200012345678"
+                className="form-input-field" />
             </div>
-            <input
-              type="text"
-              placeholder="e.g., 200012345678"
-              className="form-input-field" />
-          </div>
-          <div className="form-field">
-            <div className="field-label">
-              Mobile Number
+            <div className="form-field">
+              <div className="field-label">
+                Mobile Number
+              </div>
+              <input
+                type="tel"
+                placeholder="e.g., +94 77 123 4567"
+                className="form-input-field" />
             </div>
-            <input
-              type="tel"
-              placeholder="e.g., +94 77 123 4567"
-              className="form-input-field" />
           </div>
-          <button className="signup-button">
-            Sign Up
-          </button>
-          <div className="social-login-divider">
+          
+          <div style={{ marginTop: '25px', textAlign: 'center' }}>
+            <button className="signup-button" style={{ width: '50%', margin: '0 auto' }}>
+              Sign Up
+            </button>
+          </div>
+          
+          <div className="social-login-divider" style={{ margin: '20px 0' }}>
             or sign up with
           </div>
-          <div className="social-buttons-container">
+          
+          <div className="social-buttons-container" style={{ display: 'flex', justifyContent: 'center', gap: '15px' }}>
             <button className="social-button facebook-button">
               <div className="social-icon facebook-icon" />
               <div>Facebook</div>
@@ -91,7 +129,8 @@ const UserRegistration: React.FC = () => {
               <div>Yahoo</div>
             </button>
           </div>
-          <div className="registration-footer">
+          
+          <div className="registration-footer" style={{ marginTop: '25px', textAlign: 'center' }}>
             © 2024 BusEase Ticketing System. All rights reserved.
           </div>
         </div>
