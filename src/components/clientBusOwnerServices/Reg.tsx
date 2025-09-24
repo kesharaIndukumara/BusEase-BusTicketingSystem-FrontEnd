@@ -110,7 +110,8 @@ const BusOwnerReg: React.FC = () => {
   };
 
   return (
-    <><Header /><div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-800 to-blue-500">
+    <><Header />
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-800 to-blue-500" style={{marginTop: '60px'}}>
       {/* Background decorative circles - responsive positioning */}
       <div className="absolute w-20 h-20 sm:w-30 sm:h-32 bg-white bg-opacity-10 rounded-full left-5 sm:left-20 top-10 sm:top-22"></div>
       <div className="absolute w-32 h-32 sm:w-50 sm:h-54 bg-white bg-opacity-10 rounded-full right-5 sm:right-60 bottom-32 sm:bottom-52"></div>

@@ -9,7 +9,7 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: #1e3a8a;
+  background-color: #2B4CB8;
   overflow-x: hidden;
 }
 
@@ -625,6 +625,265 @@ body {
   align-items: center;
   text-align: center;
   width: 192px;
+}
+
+/* User Registration Component Styles */
+.user-registration-container {
+  width: 100vw;
+  height: "100%";
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  background-color: #2B4CB8;
+  margin: 0 auto;
+}
+
+.registration-background-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.registration-card {
+  border-radius: 16px;
+  padding: 48px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  position: relative;
+  z-index: 1;
+  background-color: #FFFFFF;
+}
+
+.registration-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.registration-logo-blue {
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  position: relative;
+  background-color: #4285F4;
+}
+
+.registration-logo-orange {
+  width: 24px;
+  height: 32px;
+  border-radius: 4px;
+  position: relative;
+  background-color: #FFA726;
+}
+
+.registration-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1F2937;
+  text-align: center;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.registration-subtitle {
+  font-size: 16px;
+  color: #6B7280;
+  text-align: center;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.registration-form {
+  width: 100%;
+}
+
+.form-field {
+  margin-bottom: 24px;
+}
+
+.field-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.form-input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #1F2937;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+}
+
+.form-input-field:focus {
+  outline: none;
+  border-color: #4285F4;
+}
+
+.signup-button {
+  width: 100%;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 24px;
+  background-color: #4285F4;
+}
+
+.signup-button:hover {
+  background-color: #3367D6;
+}
+
+.social-login-divider {
+  text-align: center;
+  color: #6B7280;
+  font-size: 14px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.social-buttons-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.social-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px solid #E5E7EB;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #FFFFFF;
+}
+
+.facebook-button {
+  color: #1877F2;
+}
+
+.facebook-button:hover {
+  border-color: #1877F2;
+  background-color: #F8F9FA;
+}
+
+.google-button {
+  color: #DB4437;
+}
+
+.google-button:hover {
+  border-color: #DB4437;
+  background-color: #F8F9FA;
+}
+
+.yahoo-button {
+  color: #FFFFFF;
+  background-color: #6001D2;
+  border-color: #6001D2;
+}
+
+.yahoo-button:hover {
+  background-color: #5000B8;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.facebook-icon {
+  border-radius: 4px;
+  background-color: #1877F2;
+}
+
+.google-icon {
+  border-radius: 50%;
+  background-color: #DB4437;
+}
+
+.yahoo-icon {
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.registration-footer {
+  text-align: center;
+  color: #9CA3AF;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Media Queries for User Registration */
+@media (max-width: 991px) {
+  .registration-card {
+    padding: 40px;
+    max-width: 440px;
+  }
+
+  .registration-title {
+    font-size: 24px;
+  }
+
+  .social-buttons-container {
+    flex-direction: column;
+  }
+
+  .social-button {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .user-registration-container {
+    padding: 16px;
+  }
+
+  .registration-card {
+    padding: 32px 24px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .registration-title {
+    font-size: 22px;
+  }
+
+  .registration-subtitle {
+    font-size: 14px;
+  }
+
+  .social-buttons-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .social-button {
+    padding: 14px;
+  }
 }
 
 /* Media Queries */
