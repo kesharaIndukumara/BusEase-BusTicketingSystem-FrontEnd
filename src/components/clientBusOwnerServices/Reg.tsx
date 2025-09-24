@@ -15,6 +15,7 @@ interface FormData {
   routeOptions: string[];
   permitNumber: string;
   permitDocument: File | null;
+  emailAddress: string; // Added email field to interface
 }
 
 const BusOwnerReg: React.FC = () => {
@@ -31,6 +32,7 @@ const BusOwnerReg: React.FC = () => {
     routeOptions: [],
     permitNumber: '',
     permitDocument: null,
+    emailAddress: '', // Added email field to state
   });
 
   const [dragActive, setDragActive] = useState(false);
@@ -108,6 +110,7 @@ const BusOwnerReg: React.FC = () => {
       routeOptions: [],
       permitNumber: '',
       permitDocument: null,
+      emailAddress: '', // Added email field to reset function
     });
   };
 
@@ -187,6 +190,18 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.username}
                     onChange={handleInputChange}
                     placeholder="Choose a username"
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
+                </div>
+
+                {/* Email Address - New Field */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    name="emailAddress"
+                    value={formData.emailAddress}
+                    onChange={handleInputChange}
+                    placeholder="Enter your email address"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 

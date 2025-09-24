@@ -103,6 +103,15 @@ const UserRegistration: React.FC = () => {
                 placeholder="e.g., +94 77 123 4567"
                 className="form-input-field" />
             </div>
+            <div className="form-field">
+              <div className="field-label">
+                Email Address
+              </div>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="form-input-field" />
+            </div>
           </div>
           
           <div className="form-field" style={{ marginTop: '25px' }}>
