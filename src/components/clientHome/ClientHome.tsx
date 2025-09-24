@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../common/Header';
 import ClientHomeFeatures from '../clientHome/ClientHomeFatures';
+import { Link } from "react-router-dom";
 
 
 const ClientHome: React.FC = () => {
@@ -33,7 +34,7 @@ const ClientHome: React.FC = () => {
                 </linearGradient>
               </defs>
             </svg>
-            <span className="book-button-text">Book Your Ride</span>
+            <span className="book-button-text"><Link to="/book-trip" >Book Your Ride</Link></span>
           </div>
           <div className="learn-button">
             <svg width="162" height="63" viewBox="0 0 162 63" fill="none" xmlns="http://www.w3.org/2000/svg" className="learn-button-bg">
