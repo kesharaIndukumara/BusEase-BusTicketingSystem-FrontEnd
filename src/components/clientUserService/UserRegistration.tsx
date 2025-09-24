@@ -9,7 +9,7 @@ const UserRegistration: React.FC = () => {
   return (
     <><Header /><div className="user-registration-container" style={{ marginTop: '120px' }}>
       <div className="registration-background-overlay" />
-      <div className="registration-card" style={{ maxWidth: '800px', margin: '0 auto' }}>
+      <div className="registration-card" style={{ maxWidth: '1000px', margin: '0 auto', padding: '30px' }}>
         <div className="registration-logo-container">
           <img 
             src="src/assets/img/BusEase-logo-dark.png" 
@@ -47,8 +47,8 @@ const UserRegistration: React.FC = () => {
     </button>
   </div>
 </div>
-        <div className="registration-form" style={{ width: '100%', padding: '0 20px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+        <div className="registration-form" style={{ width: '100%', padding: '0 40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
             <div className="form-field">
               <div className="field-label">
                 Full Name
@@ -102,6 +102,43 @@ const UserRegistration: React.FC = () => {
                 type="tel"
                 placeholder="e.g., +94 77 123 4567"
                 className="form-input-field" />
+            </div>
+          </div>
+          
+          <div className="form-field" style={{ marginTop: '25px' }}>
+            <div className="field-label">
+              Profile Picture
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+              <input
+                type="file"
+                accept="image/*"
+                id="profile-picture"
+                className="form-input-field"
+                style={{ paddingTop: '8px' }}
+              />
+              <label 
+                htmlFor="profile-picture" 
+                style={{ 
+                  cursor: 'pointer',
+                  backgroundColor: '#0057b7',
+                  color: '#ffffff',
+                  padding: '10px 20px',
+                  borderRadius: '5px',
+                  fontSize: '14px',
+                  fontWeight: 'bold',
+                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                  transition: 'background-color 0.3s ease'
+                }}
+                className="browse-button"
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#004494'}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#0057b7'}
+              >
+                Browse Files
+              </label>
+            </div>
+            <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>
+              Maximum file size: 5MB. Supported formats: JPG, PNG
             </div>
           </div>
           
