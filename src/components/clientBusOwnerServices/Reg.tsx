@@ -1,42 +1,51 @@
 import React, { useState } from 'react';
 import Header from '../common/Header';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
+// Updated interface to match backend entity
 interface FormData {
   fullName: string;
-  username: string;
-  nicNumber: string;
-  busRegNumber: string;
+  userName: string; // Changed from username to userName to match backend
+  nic: string; // Will convert to number when sending
+  vehicleRegNumber: string; // Changed from busRegNumber
   password: string;
-  chassisNumber: string;
-  routeNumber: string;
-  sheetsCount: string;
-  busType: 'AC' | 'NON-AC' | '';
-  routeOptions: string[];
-  permitNumber: string;
-  permitDocument: File | null;
-  emailAddress: string; // Added email field to interface
+  busChassisNumber: string; // Changed from chassisNumber
+  localRouteNumber: string; // Changed from routeNumber
+  sheetsCount: string; // Will convert to number when sending
+  busType: 'AC' | 'NON_AC' | '';
+  routerType_normal: boolean; // Changed from routeOptions array
+  routerType_special: boolean; // Changed from routeOptions array
+  routerPermitNumber: string; // Changed from permitNumber, will convert to number
+  permitDocument: File | null; // For file upload
+  email: string; // Changed from emailAddress
+  address: string; // New field
 }
 
 const BusOwnerReg: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
-    username: '',
-    nicNumber: '',
-    busRegNumber: '',
+    userName: '',
+    nic: '',
+    vehicleRegNumber: '',
     password: '',
-    chassisNumber: '',
-    routeNumber: '',
+    busChassisNumber: '',
+    localRouteNumber: '',
     sheetsCount: '',
     busType: '',
-    routeOptions: [],
-    permitNumber: '',
+    routerType_normal: false,
+    routerType_special: false,
+    routerPermitNumber: '',
     permitDocument: null,
-    emailAddress: '', // Added email field to state
+    email: '',
+    address: '',
   });
 
   const [dragActive, setDragActive] = useState(false);
   const [activeTab, setActiveTab] = useState<'USER' | 'BUS OWNER'>('BUS OWNER');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,17 +53,18 @@ const BusOwnerReg: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleBusTypeChange = (type: 'AC' | 'NON-AC') => {
+  // Update handleBusTypeChange to match backend
+  const handleBusTypeChange = (type: 'AC' | 'NON_AC') => {
     setFormData(prev => ({ ...prev, busType: type }));
   };
 
-  const handleRouteOptionChange = (option: string) => {
-    setFormData(prev => ({
-      ...prev,
-      routeOptions: prev.routeOptions.includes(option)
-        ? prev.routeOptions.filter(o => o !== option)
-        : [...prev.routeOptions, option]
-    }));
+  // Update route option handlers to work with boolean flags instead of array
+  const handleRouteOptionChange = (option: 'normal' | 'special', checked: boolean) => {
+    if (option === 'normal') {
+      setFormData(prev => ({ ...prev, routerType_normal: checked }));
+    } else {
+      setFormData(prev => ({ ...prev, routerType_special: checked }));
+    }
   };
 
   const handleFileUpload = (file: File) => {
@@ -91,26 +101,84 @@ const BusOwnerReg: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Modify handleSubmit to use axios
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsLoading(true);
+    setError(null);
+    setSuccessMessage(null);
+    
+    try {
+      // Create request payload matching backend structure
+      const payload = {
+        busChassisNumber: formData.busChassisNumber,
+        nic: parseInt(formData.nic, 10) || 0, // Convert to number
+        fullName: formData.fullName,
+        userName: formData.userName,
+        localRouteNumber: formData.localRouteNumber,
+        vehicleRegNumber: formData.vehicleRegNumber,
+        address: formData.address,
+        password: formData.password,
+        busType: formData.busType,
+        sheetsCount: parseInt(formData.sheetsCount, 10) || 0, // Convert to number
+        email: formData.email,
+        routerPermitNumber: parseInt(formData.routerPermitNumber, 10) || 0, // Convert to number
+        routerType_normal: formData.routerType_normal,
+        routerType_special: formData.routerType_special
+      };
+      
+      // Send request to API
+      const response = await axios.post('http://localhost:8081/busOwner/add', payload);
+      
+      // If file needs to be uploaded separately, handle that here
+      if (formData.permitDocument) {
+        const fileFormData = new FormData();
+        fileFormData.append('file', formData.permitDocument);
+        fileFormData.append('userName', formData.userName); // To link the file to user
+        
+        await axios.post('http://localhost:8081/busOwner/upload-permit', fileFormData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+      }
+      
+      console.log('Registration successful:', response.data);
+      setSuccessMessage('Registration successful! Redirecting to login page...');
+      
+      // Reset form after successful submission
+      handleReset();
+      
+      // Redirect to login page after 2 seconds
+      setTimeout(() => {
+        navigate('/signin');
+      }, 2000);
+      
+    } catch (err) {
+      console.error('Registration failed:', err);
+      setError(err instanceof Error ? err.message : 'An error occurred during registration');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleReset = () => {
     setFormData({
       fullName: '',
-      username: '',
-      nicNumber: '',
-      busRegNumber: '',
+      userName: '',
+      nic: '',
+      vehicleRegNumber: '',
       password: '',
-      chassisNumber: '',
-      routeNumber: '',
+      busChassisNumber: '',
+      localRouteNumber: '',
       sheetsCount: '',
       busType: '',
-      routeOptions: [],
-      permitNumber: '',
+      routerType_normal: false,
+      routerType_special: false,
+      routerPermitNumber: '',
       permitDocument: null,
-      emailAddress: '', // Added email field to reset function
+      email: '',
+      address: '',
     });
   };
 
@@ -166,6 +234,20 @@ const BusOwnerReg: React.FC = () => {
 
           {/* Form section */}
           <form onSubmit={handleSubmit} className="px-4 sm:px-8 md:px-16 pb-6 sm:pb-8">
+            {/* Display success message */}
+            {successMessage && (
+              <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg">
+                {successMessage}
+              </div>
+            )}
+            
+            {/* Display error message */}
+            {error && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
+                {error}
+              </div>
+            )}
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
               {/* Left Column */}
               <div className="space-y-4 sm:space-y-6">
@@ -186,22 +268,34 @@ const BusOwnerReg: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700 mb-2">Username</label>
                   <input
                     type="text"
-                    name="username"
-                    value={formData.username}
+                    name="userName" // Changed to match backend
+                    value={formData.userName}
                     onChange={handleInputChange}
                     placeholder="Choose a username"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
-                {/* Email Address - New Field */}
+                {/* Email Address */}
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
                   <input
                     type="email"
-                    name="emailAddress"
-                    value={formData.emailAddress}
+                    name="email" // Changed to match backend
+                    value={formData.email}
                     onChange={handleInputChange}
                     placeholder="Enter your email address"
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
+                </div>
+
+                {/* Address - New Field */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Address</label>
+                  <input
+                    type="text"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    placeholder="Enter your address"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
@@ -210,8 +304,8 @@ const BusOwnerReg: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700 mb-2">NIC Number</label>
                   <input
                     type="text"
-                    name="nicNumber"
-                    value={formData.nicNumber}
+                    name="nic" // Changed to match backend
+                    value={formData.nic}
                     onChange={handleInputChange}
                     placeholder="Enter NIC (e.g., 200012345678)"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
@@ -222,8 +316,8 @@ const BusOwnerReg: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700 mb-2">Bus Registration Number</label>
                   <input
                     type="text"
-                    name="busRegNumber"
-                    value={formData.busRegNumber}
+                    name="vehicleRegNumber" // Changed to match backend
+                    value={formData.vehicleRegNumber}
                     onChange={handleInputChange}
                     placeholder="e.g., WP NA-1234"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
@@ -249,8 +343,8 @@ const BusOwnerReg: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700 mb-2">Bus Chassis Number</label>
                   <input
                     type="text"
-                    name="chassisNumber"
-                    value={formData.chassisNumber}
+                    name="busChassisNumber" // Changed to match backend
+                    value={formData.busChassisNumber}
                     onChange={handleInputChange}
                     placeholder="e.g., JH4DA9350LS000000"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
@@ -261,10 +355,22 @@ const BusOwnerReg: React.FC = () => {
                   <label className="block text-sm font-bold text-gray-700 mb-2">Local Route Number</label>
                   <input
                     type="text"
-                    name="routeNumber"
-                    value={formData.routeNumber}
+                    name="localRouteNumber" // Changed to match backend
+                    value={formData.localRouteNumber}
                     onChange={handleInputChange}
                     placeholder="e.g., 138 Maharagama – Pettah"
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
+                </div>
+
+                {/* Password */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    placeholder="xxxxxxxxxxxxxxxxxxx"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
@@ -286,13 +392,12 @@ const BusOwnerReg: React.FC = () => {
                         <input
                           type="radio"
                           name="busType"
-                          checked={formData.busType === 'NON-AC'}
-                          onChange={() => handleBusTypeChange('NON-AC')}
+                          checked={formData.busType === 'NON_AC'}
+                          onChange={() => handleBusTypeChange('NON_AC')}
                           className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 focus:ring-blue-500" />
-                        <span className="text-sm text-gray-700">NON-AC</span>
+                        <span className="text-sm text-gray-700">NON AC</span>
                       </label>
                     </div>
-                    <p className="text-xs text-gray-400 mt-1">Select one (app logic should enforce)</p>
                   </div>
 
                   <div className="w-full sm:w-32">
@@ -307,23 +412,23 @@ const BusOwnerReg: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Route Options */}
+                {/* Route Options - Updated to match backend */}
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Route Options</label>
                   <div className="space-y-3">
                     <label className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer">
                       <input
                         type="checkbox"
-                        checked={formData.routeOptions.includes('normal')}
-                        onChange={() => handleRouteOptionChange('normal')}
+                        checked={formData.routerType_normal}
+                        onChange={(e) => handleRouteOptionChange('normal', e.target.checked)}
                         className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
                       <span className="text-sm text-gray-700 select-none">Normal routes only</span>
                     </label>
                     <label className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer">
                       <input
                         type="checkbox"
-                        checked={formData.routeOptions.includes('special')}
-                        onChange={() => handleRouteOptionChange('special')}
+                        checked={formData.routerType_special}
+                        onChange={(e) => handleRouteOptionChange('special', e.target.checked)}
                         className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
                       <span className="text-sm text-gray-700 select-none">Special tours available</span>
                     </label>
@@ -334,9 +439,9 @@ const BusOwnerReg: React.FC = () => {
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Bus Route Permit Number</label>
                   <input
-                    type="text"
-                    name="permitNumber"
-                    value={formData.permitNumber}
+                    type="number"
+                    name="routerPermitNumber" // Changed to match backend
+                    value={formData.routerPermitNumber}
                     onChange={handleInputChange}
                     placeholder="Enter permit number"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
@@ -393,15 +498,27 @@ const BusOwnerReg: React.FC = () => {
               <button
                 type="button"
                 onClick={handleReset}
-                className="w-full sm:w-40 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 text-gray-700 font-bold py-4 sm:py-3 px-6 rounded-lg transition-colors text-base"
+                disabled={isLoading}
+                className="w-full sm:w-40 bg-gray-200 hover:bg-gray-300 active:bg-gray-400 text-gray-700 font-bold py-4 sm:py-3 px-6 rounded-lg transition-colors text-base disabled:opacity-50"
               >
                 Reset
               </button>
               <button
                 type="submit"
-                className="w-full sm:w-40 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-4 sm:py-3 px-6 rounded-lg transition-colors text-base"
+                disabled={isLoading}
+                className="w-full sm:w-40 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-4 sm:py-3 px-6 rounded-lg transition-colors text-base disabled:opacity-50 flex justify-center items-center"
               >
-                Submit
+                {isLoading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Submitting...
+                  </>
+                ) : (
+                  'Submit'
+                )}
               </button>
             </div>
           </form>
