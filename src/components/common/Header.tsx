@@ -11,7 +11,15 @@ function Header() {
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar" style={{
+      zIndex: 1000,
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      backgroundColor: 'white', // Ensure background is visible
+      boxShadow: '0 2px 4px rgba(0,0,0,0.1)' // Optional: adds shadow for better separation
+    }}>
       <div className="navbar-container">
         <div className="navbar-content" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div className="logo-section">

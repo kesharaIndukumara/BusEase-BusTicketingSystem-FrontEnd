@@ -3,6 +3,7 @@ import ClientHome from './components/clientHome/ClientHome'
 import Login from './components/common/logIn/Login.tsx'
 import ForgotPassword from './components/common/logIn/FogotPassword.tsx'
 import TripBooking from './components/clientHome/clientTicketManage/TripBooking'
+import Signin from './components/clientBusOwnerServices/Reg.tsx'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route path="/contact" element={<div>Contact Page - Coming Soon</div>} />
       <Route path="/login" element={<Login />} />
       <Route path="/ForgotPassword" element={<ForgotPassword />} />
+      <Route path="/signin" element={<Signin />} />
     </Routes>
   )
 }

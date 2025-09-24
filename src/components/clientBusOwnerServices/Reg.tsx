@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../common/Header';
 
 interface FormData {
   fullName: string;
@@ -32,6 +33,7 @@ const BusOwnerReg: React.FC = () => {
   });
 
   const [dragActive, setDragActive] = useState(false);
+  const [activeTab, setActiveTab] = useState<'USER' | 'BUS OWNER'>('BUS OWNER');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -108,7 +110,7 @@ const BusOwnerReg: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-800 to-blue-500">
+    <><Header /><div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-800 to-blue-500">
       {/* Background decorative circles - responsive positioning */}
       <div className="absolute w-20 h-20 sm:w-30 sm:h-32 bg-white bg-opacity-10 rounded-full left-5 sm:left-20 top-10 sm:top-22"></div>
       <div className="absolute w-32 h-32 sm:w-50 sm:h-54 bg-white bg-opacity-10 rounded-full right-5 sm:right-60 bottom-32 sm:bottom-52"></div>
@@ -121,15 +123,39 @@ const BusOwnerReg: React.FC = () => {
           <div className="flex flex-col items-center pt-4 sm:pt-8 pb-4 sm:pb-6 px-4">
             {/* Bus Logo - responsive sizing */}
             <div className="mb-3 sm:mb-4">
-              <img 
+              <img
                 src="src/assets/img/BusEase-logo-dark.png"
                 alt="BusEase Logo"
-                className="w-50 h-34 sm:w-58 sm:h-42 object-contain"
-              />
+                className="w-50 h-34 sm:w-58 sm:h-42 object-contain" />
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-bold text-blue-800 mb-1 sm:mb-2 text-center">BusEase Ticketing</h1>
             <p className="text-base sm:text-lg text-slate-500 text-center">Bus Owner Registration</p>
+          </div>
+                    {/* Tab Navigation */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-white rounded-lg p-1 shadow-sm border">
+              <button
+                className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                  activeTab === 'USER' 
+                    ? 'bg-blue-50 text-blue-600 border border-blue-200' 
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+                onClick={() => setActiveTab('USER')}
+              >
+                USER
+              </button>
+              <button
+                className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                  activeTab === 'BUS OWNER' 
+                    ? 'bg-blue-50 text-blue-600 border border-blue-200' 
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+                onClick={() => setActiveTab('BUS OWNER')}
+              >
+                BUS OWNER
+              </button>
+            </div>
           </div>
 
           {/* Form section */}
@@ -146,8 +172,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="Enter full name"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
                 {/* Username */}
@@ -159,8 +184,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.username}
                     onChange={handleInputChange}
                     placeholder="Choose a username"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
                 {/* NIC Number */}
@@ -172,8 +196,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.nicNumber}
                     onChange={handleInputChange}
                     placeholder="Enter NIC (e.g., 200012345678)"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
                 {/* Bus Registration Number */}
@@ -185,8 +208,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.busRegNumber}
                     onChange={handleInputChange}
                     placeholder="e.g., WP NA-1234"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
                 {/* Password */}
@@ -198,8 +220,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.password}
                     onChange={handleInputChange}
                     placeholder="xxxxxxxxxxxxxxxxxxx"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
               </div>
 
@@ -214,8 +235,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.chassisNumber}
                     onChange={handleInputChange}
                     placeholder="e.g., JH4DA9350LS000000"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
                 {/* Local Route Number */}
@@ -227,8 +247,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.routeNumber}
                     onChange={handleInputChange}
                     placeholder="e.g., 138 Maharagama – Pettah"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
                 {/* Bus Type and Sheets Count */}
@@ -242,8 +261,7 @@ const BusOwnerReg: React.FC = () => {
                           name="busType"
                           checked={formData.busType === 'AC'}
                           onChange={() => handleBusTypeChange('AC')}
-                          className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                        />
+                          className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 focus:ring-blue-500" />
                         <span className="text-sm text-gray-700">AC</span>
                       </label>
                       <label className="flex items-center space-x-2">
@@ -252,8 +270,7 @@ const BusOwnerReg: React.FC = () => {
                           name="busType"
                           checked={formData.busType === 'NON-AC'}
                           onChange={() => handleBusTypeChange('NON-AC')}
-                          className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
-                        />
+                          className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 focus:ring-blue-500" />
                         <span className="text-sm text-gray-700">NON-AC</span>
                       </label>
                     </div>
@@ -268,8 +285,7 @@ const BusOwnerReg: React.FC = () => {
                       value={formData.sheetsCount}
                       onChange={handleInputChange}
                       placeholder="e.g., 55"
-                      className="w-full px-4 py-3 sm:px-3 sm:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base sm:text-sm"
-                    />
+                      className="w-full px-4 py-3 sm:px-3 sm:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base sm:text-sm" />
                   </div>
                 </div>
 
@@ -282,8 +298,7 @@ const BusOwnerReg: React.FC = () => {
                         type="checkbox"
                         checked={formData.routeOptions.includes('normal')}
                         onChange={() => handleRouteOptionChange('normal')}
-                        className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
+                        className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
                       <span className="text-sm text-gray-700 select-none">Normal routes only</span>
                     </label>
                     <label className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer">
@@ -291,8 +306,7 @@ const BusOwnerReg: React.FC = () => {
                         type="checkbox"
                         checked={formData.routeOptions.includes('special')}
                         onChange={() => handleRouteOptionChange('special')}
-                        className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
+                        className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
                       <span className="text-sm text-gray-700 select-none">Special tours available</span>
                     </label>
                   </div>
@@ -307,8 +321,7 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.permitNumber}
                     onChange={handleInputChange}
                     placeholder="Enter permit number"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors"
-                  />
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
               </div>
             </div>
@@ -342,8 +355,7 @@ const BusOwnerReg: React.FC = () => {
                         type="file"
                         className="hidden"
                         accept=".pdf,.jpg,.jpeg,.png"
-                        onChange={handleFileInput}
-                      />
+                        onChange={handleFileInput} />
                     </label>
                     <p className="text-xs text-gray-400 mt-2">PDF, JPG, or PNG • Max 10MB</p>
                   </div>
@@ -382,7 +394,7 @@ const BusOwnerReg: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div></>
   );
 };
 
