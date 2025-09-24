@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from '../common/Header';
+import Login_Header from '../common/Login_Header';
 
 const Dashboard: React.FC = () => {
   return (
     <>
-      <Header />
+      <Login_Header />
       <div className="w-full min-h-screen relative overflow-hidden bg-gradient-to-br from-blue-800 to-blue-500 font-sans" style={{ marginTop: '60px' }}>
         {/* Background decorative circles - hide on mobile for cleaner look */}
         <div className="hidden md:block absolute left-[60px] top-[80px] w-[120px] h-[120px] rounded-full bg-white/10 z-[1]" />
@@ -361,7 +361,7 @@ const Dashboard: React.FC = () => {
                   </div>
 
                   {/* Selection Box (Red dashed border) */}
-                  <div className="absolute left-[377px] top-[30px] w-[86px] h-[78px] border-[3px] border-red-500 border-dashed rounded-[10px] pointer-events-none"></div>
+                  {/* <div className="absolute left-[377px] top-[30px] w-[86px] h-[78px] border-[3px] border-red-500 border-dashed rounded-[10px] pointer-events-none"></div> */}
 
                   {/* Driver and Door Labels */}
                   <div className="absolute bottom-8 left-4 text-slate-400 text-xs">Driver</div>
