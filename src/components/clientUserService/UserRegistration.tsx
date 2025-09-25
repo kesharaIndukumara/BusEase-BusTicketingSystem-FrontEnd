@@ -3,9 +3,71 @@ import Header from '../common/Header';
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+interface CustomerData {
+  nic: number;
+  fullName: string;
+  username: string;
+  password: string;
+  email: string;
+  mobileNumber: number;
+}
+
 const UserRegistration: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'USER' | 'BUS OWNER'>('USER');
   const navigate = useNavigate();
+  
+  const [formData, setFormData] = useState<CustomerData>({
+    nic: 0,
+    fullName: '',
+    username: '',
+    password: '',
+    email: '',
+    mobileNumber: 0
+  });
+  
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: name === 'nic' || name === 'mobileNumber' ? Number(value) : value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:8082/customer/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log('Registration successful:', result);
+        // Navigate to login or success page
+        navigate('/signin_user');
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message || 'Registration failed');
+      }
+    } catch (error) {
+      setError('Network error. Please try again.');
+      console.error('Registration error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <><Header /><div className="user-registration-container" style={{ marginTop: '120px' }}>
       <div className="registration-background-overlay" />
@@ -48,114 +110,149 @@ const UserRegistration: React.FC = () => {
   </div>
 </div>
         <div className="registration-form" style={{ width: '100%', padding: '0 40px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
-            <div className="form-field">
-              <div className="field-label">
-                Full Name
-              </div>
-              <input
-                type="text"
-                placeholder="Enter full name"
-                className="form-input-field" />
+          {error && (
+            <div style={{ 
+              backgroundColor: '#fee', 
+              color: '#c33', 
+              padding: '10px', 
+              borderRadius: '5px', 
+              marginBottom: '20px',
+              textAlign: 'center'
+            }}>
+              {error}
             </div>
-            <div className="form-field">
-              <div className="field-label">
-                Username
-              </div>
-              <input
-                type="text"
-                placeholder="Choose a username"
-                className="form-input-field" />
-            </div>
-            <div className="form-field">
-              <div className="field-label">
-                Password
-              </div>
-              <input
-                type="password"
-                placeholder="Enter a strong password"
-                className="form-input-field" />
-            </div>
-            <div className="form-field">
-              <div className="field-label">
-                Email Address
-              </div>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="form-input-field" />
-            </div>
-            <div className="form-field">
-              <div className="field-label">
-                NIC Number
-              </div>
-              <input
-                type="text"
-                placeholder="e.g., 200012345678"
-                className="form-input-field" />
-            </div>
-            <div className="form-field">
-              <div className="field-label">
-                Mobile Number
-              </div>
-              <input
-                type="tel"
-                placeholder="e.g., +94 77 123 4567"
-                className="form-input-field" />
-            </div>
-            <div className="form-field">
-              <div className="field-label">
-                Email Address
-              </div>
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="form-input-field" />
-            </div>
-          </div>
+          )}
           
-          <div className="form-field" style={{ marginTop: '25px' }}>
-            <div className="field-label">
-              Profile Picture
+          <form onSubmit={handleSubmit}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+              <div className="form-field">
+                <div className="field-label">
+                  Full Name
+                </div>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  placeholder="Enter full name"
+                  className="form-input-field"
+                  required />
+              </div>
+              <div className="form-field">
+                <div className="field-label">
+                  Username
+                </div>
+                <input
+                  type="text"
+                  name="username"
+                  value={formData.username}
+                  onChange={handleInputChange}
+                  placeholder="Choose a username"
+                  className="form-input-field"
+                  required />
+              </div>
+              <div className="form-field">
+                <div className="field-label">
+                  Password
+                </div>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  placeholder="Enter a strong password"
+                  className="form-input-field"
+                  required />
+              </div>
+              <div className="form-field">
+                <div className="field-label">
+                  Email Address
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Enter your email"
+                  className="form-input-field"
+                  required />
+              </div>
+              <div className="form-field">
+                <div className="field-label">
+                  NIC Number
+                </div>
+                <input
+                  type="number"
+                  name="nic"
+                  value={formData.nic || ''}
+                  onChange={handleInputChange}
+                  placeholder="e.g., 200012345678"
+                  className="form-input-field"
+                  required />
+              </div>
+              <div className="form-field">
+                <div className="field-label">
+                  Mobile Number
+                </div>
+                <input
+                  type="number"
+                  name="mobileNumber"
+                  value={formData.mobileNumber || ''}
+                  onChange={handleInputChange}
+                  placeholder="e.g., 94771234567"
+                  className="form-input-field"
+                  required />
+              </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-              <input
-                type="file"
-                accept="image/*"
-                id="profile-picture"
-                className="form-input-field"
-                style={{ paddingTop: '8px' }}
-              />
-              <label 
-                htmlFor="profile-picture" 
-                style={{ 
-                  cursor: 'pointer',
-                  backgroundColor: '#0057b7',
-                  color: '#ffffff',
-                  padding: '10px 20px',
-                  borderRadius: '5px',
-                  fontSize: '14px',
-                  fontWeight: 'bold',
-                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-                  transition: 'background-color 0.3s ease'
-                }}
-                className="browse-button"
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#004494'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#0057b7'}
+            
+            <div className="form-field" style={{ marginTop: '25px' }}>
+              <div className="field-label">
+                Profile Picture
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="profile-picture"
+                  className="form-input-field"
+                  style={{ paddingTop: '8px' }}
+                />
+                <label 
+                  htmlFor="profile-picture" 
+                  style={{ 
+                    cursor: 'pointer',
+                    backgroundColor: '#0057b7',
+                    color: '#ffffff',
+                    padding: '10px 20px',
+                    borderRadius: '5px',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                    transition: 'background-color 0.3s ease'
+                  }}
+                  className="browse-button"
+                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#004494'}
+                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#0057b7'}
+                >
+                  Browse Files
+                </label>
+              </div>
+              <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>
+                Maximum file size: 5MB. Supported formats: JPG, PNG
+              </div>
+            </div>
+            
+            <div style={{ marginTop: '25px', textAlign: 'center' }}>
+              <button 
+                type="submit" 
+                className="signup-button" 
+                style={{ width: '50%', margin: '0 auto' }}
+                disabled={loading}
               >
-                Browse Files
-              </label>
+                {loading ? 'Signing Up...' : 'Sign Up'}
+              </button>
             </div>
-            <div style={{ fontSize: '12px', color: '#666', marginTop: '5px' }}>
-              Maximum file size: 5MB. Supported formats: JPG, PNG
-            </div>
-          </div>
-          
-          <div style={{ marginTop: '25px', textAlign: 'center' }}>
-            <button className="signup-button" style={{ width: '50%', margin: '0 auto' }}>
-              Sign Up
-            </button>
-          </div>
+          </form>
           
           <div className="social-login-divider" style={{ margin: '20px 0' }}>
             or sign up with

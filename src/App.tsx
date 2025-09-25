@@ -6,6 +6,7 @@ import TripBooking from './components/clientHome/clientTicketManage/TripBooking'
 import Signin from './components/clientBusOwnerServices/Reg.tsx'
 import Signin_user from './components/clientUserService/UserRegistration.tsx'
 import Dashboard from './components/clientBusOwnerServices/Dashboard.tsx'
+import UserDashboard from './components/clientUserService/UserDashboard.tsx'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path="/signin" element={<Signin />} />
       <Route path="/signin_user" element={<Signin_user />} />
       <Route path="/dashboard" element={<Dashboard />} />      
+      <Route path="/UserDashboard" element={<UserDashboard />} />        
     </Routes>
   )
 }

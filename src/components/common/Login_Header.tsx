@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Header.css";
 import BusEaseLogo from '../../assets/img/BusEase-logo.png';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -42,6 +43,7 @@ function Header() {
         break;
       case 'logout':
         console.log('Logout user');
+        navigate('/'); // Navigate to home page (ClientHome)
         break;
       default:
         break;

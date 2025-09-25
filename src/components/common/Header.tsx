@@ -45,7 +45,7 @@ function Header() {
             <Link to="/book-trip" className="nav-link">Book-Trip</Link>
             <Link to="/features" className="nav-link">Features</Link>
             <Link to="/reviews" className="nav-link">Reviews</Link>
-            <Link to="/contact" className="nav-link">Contact</Link>
+            <Link to="/UserDashboard" className="nav-link">Contact</Link>
             <div className="mobile-auth-buttons">
               <Link to="/login" className="nav-link">
                 <div className="signin-button mobile-signin">

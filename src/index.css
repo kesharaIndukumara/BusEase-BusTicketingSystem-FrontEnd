@@ -492,6 +492,625 @@ body {
   }
 }
 
+/* User Dashboard Styles */
+.user-dashboard {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+  overflow-x: auto;
+}
+
+/* Background Decorative Circles */
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bg-circle-1 {
+  width: 120px;
+  height: 120px;
+  left: 60px;
+  top: 70px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-circle-2 {
+  width: 200px;
+  height: 200px;
+  right: 60px;
+  bottom: 200px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-circle-3 {
+  width: 80px;
+  height: 80px;
+  left: 220px;
+  bottom: 80px;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  position: fixed;
+  left: 0;
+  top: 72px;
+  width: 220px;
+  height: calc(100vh - 72px);
+  z-index: 10;
+}
+
+.sidebar-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-menu {
+  position: absolute;
+  left: 12px;
+  top: 20px;
+  width: 196px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-item {
+  position: relative;
+  width: 196px;
+  height: 44px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-item span {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.sidebar-item.active span {
+  color: #FFF;
+  font-weight: 700;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Main Content */
+.dashboard-main {
+  margin-left: 220px;
+  padding: 96px 20px 20px 20px;
+  min-height: calc(100vh - 116px);
+}
+
+/* Stats Container */
+.stats-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  position: relative;
+  width: 300px;
+  height: 110px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.97) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.97) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.stat-content {
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+}
+
+.stat-label {
+  color: #64748B;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  color: #1E40AF;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-change {
+  position: absolute;
+  top: 64px;
+  right: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.stat-change.positive {
+  color: #16A34A;
+}
+
+.stat-change.negative {
+  color: #DC2626;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  display: flex;
+  gap: 20px;
+}
+
+.content-section {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 740px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.97) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.section-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 250, 252, 0.97) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.section-header {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  z-index: 1;
+}
+
+.section-title {
+  color: #1E40AF;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  color: #64748B;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Trips List */
+.trips-list {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trip-card {
+  position: relative;
+  height: 96px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.trip-card-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #E5E7EB;
+}
+
+.trip-info {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  z-index: 1;
+}
+
+.trip-route {
+  color: #0F172A;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.trip-details {
+  color: #64748B;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.trip-schedule {
+  color: #64748B;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.manage-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 104px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: #3B82F6;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+
+.manage-btn span {
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.manage-btn:hover {
+  background: #2563EB;
+  transform: translateY(calc(-50% - 1px));
+}
+
+.manage-btn-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: #3B82F6;
+}
+
+/* Booking Table */
+.booking-table {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  right: 20px;
+  bottom: 80px;
+  overflow-y: auto;
+}
+
+.table-header {
+  position: relative;
+  height: 40px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background: #EEF2FF;
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr 1fr 1fr;
+  align-items: center;
+  padding: 0 12px;
+  gap: 16px;
+}
+
+.table-header-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: #EEF2FF;
+}
+
+.header-cell {
+  color: #1E40AF;
+  font-size: 12px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.table-row {
+  position: relative;
+  height: 48px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #E5E7EB;
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr 1fr 1fr;
+  align-items: center;
+  padding: 0 12px;
+  gap: 16px;
+}
+
+.table-row-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #E5E7EB;
+}
+
+.table-cell {
+  color: #0F172A;
+  font-size: 12px;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 11px;
+  font-size: 11px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+.status-badge.paid {
+  background: #16A34A;
+}
+
+.status-badge.refunded {
+  background: #F59E0B;
+}
+
+.status-badge.void {
+  background: #DC2626;
+}
+
+/* Pagination */
+.pagination {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 11px;
+}
+
+.pagination-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn.active {
+  background: #3B82F6;
+  color: white;
+}
+
+.pagination-btn:not(.active) {
+  background: #E5E7EB;
+  color: #374151;
+}
+
+.pagination-btn:hover:not(.active) {
+  background: #D1D5DB;
+}
+
+/* Footer */
+.dashboard-footer {
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 991px) {
+  .dashboard-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;
+  }
+
+  .sidebar-menu {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    flex-direction: row;
+  }
+
+  .sidebar-item {
+    min-width: 150px;
+    margin-right: 10px;
+    height: 36px;
+    padding-left: 16px;
+  }
+
+  .sidebar-item span {
+    font-size: 12px;
+  }
+
+  .dashboard-main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+
+  .dashboard-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content-section {
+    max-width: 100%;
+    height: auto;
+    min-height: 600px;
+  }
+
+  .dashboard-footer {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bg-circle-1 {
+    width: 80px;
+    height: 80px;
+    left: 20px;
+    top: 40px;
+  }
+
+  .bg-circle-2 {
+    width: 120px;
+    height: 120px;
+    right: 20px;
+    bottom: 100px;
+  }
+
+  .bg-circle-3 {
+    width: 60px;
+    height: 60px;
+    left: 120px;
+    bottom: 40px;
+  }
+
+  .sidebar-menu {
+    padding: 5px;
+  }
+
+  .sidebar-item {
+    min-width: 120px;
+    height: 32px;
+    padding-left: 12px;
+  }
+
+  .sidebar-item span {
+    font-size: 11px;
+  }
+
+  .dashboard-main {
+    padding: 15px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 11px;
+  }
+
+  .trip-route {
+    font-size: 14px;
+  }
+
+  .trip-details,
+  .trip-schedule {
+    font-size: 11px;
+  }
+
+  .manage-btn {
+    width: 80px;
+    height: 28px;
+  }
+
+  .manage-btn span {
+    font-size: 11px;
+  }
+
+  .table-header,
+  .table-row {
+    padding: 0 8px;
+    gap: 8px;
+  }
+
+  .header-cell,
+  .table-cell {
+    font-size: 10px;
+  }
+
+  .dashboard-footer {
+    font-size: 11px;
+    padding: 15px;
+  }
+}
+
 /* Routes Section Styles */
 .routes-container {
   width: 100%;
