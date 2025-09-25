@@ -7,6 +7,7 @@ import Signin from './components/clientBusOwnerServices/Reg.tsx'
 import Signin_user from './components/clientUserService/UserRegistration.tsx'
 import Dashboard from './components/clientBusOwnerServices/Dashboard.tsx'
 import UserDashboard from './components/clientUserService/UserDashboard.tsx'
+import ReviewsPage from './components/pages/review-page/ReviewsPage.tsx'
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <Route path="/" element={<ClientHome />} />
       <Route path="/book-trip" element={<TripBooking />} />
       <Route path="/features" element={<div>Features Page - Coming Soon</div>} />
-      <Route path="/reviews" element={<div>Reviews Page - Coming Soon</div>} />
+      <Route path="/reviews" element={<ReviewsPage />} />
       <Route path="/contact" element={<div>Contact Page - Coming Soon</div>} />
       <Route path="/login" element={<Login />} />
       <Route path="/ForgotPassword" element={<ForgotPassword />} />
