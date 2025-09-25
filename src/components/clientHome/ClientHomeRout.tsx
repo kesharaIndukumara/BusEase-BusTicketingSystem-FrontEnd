@@ -11,7 +11,7 @@ function ClientHomeRout() {
           <div className="route-service">Express Service via Expressway</div>
           <div className="route-duration">Duration: 2.5 hours</div>
           <div className="route-fare">Fare: LKR 280 - 450</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>
@@ -24,7 +24,7 @@ function ClientHomeRout() {
           <div className="route-service">Coastal Highway Route</div>
           <div className="route-duration">Duration: 2 hours</div>
           <div className="route-fare">Fare: LKR 180 - 320</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>
@@ -37,7 +37,7 @@ function ClientHomeRout() {
           <div className="route-service">Northern Province Express</div>
           <div className="route-duration">Duration: 7 hours</div>
           <div className="route-fare">Fare: LKR 780 - 1200</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>
@@ -50,7 +50,7 @@ function ClientHomeRout() {
           <div className="route-service">Ancient City Route</div>
           <div className="route-duration">Duration: 4.5 hours</div>
           <div className="route-fare">Fare: LKR 420 - 650</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>
@@ -63,7 +63,7 @@ function ClientHomeRout() {
           <div className="route-service">Hill Country Route</div>
           <div className="route-duration">Duration: 3 hours</div>
           <div className="route-fare">Fare: LKR 220 - 380</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>
@@ -76,7 +76,7 @@ function ClientHomeRout() {
           <div className="route-service">Gem City Route</div>
           <div className="route-duration">Duration: 2.5 hours</div>
           <div className="route-fare">Fare: LKR 160 - 280</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>
@@ -89,7 +89,7 @@ function ClientHomeRout() {
           <div className="route-service">Eastern Coast Route</div>
           <div className="route-duration">Duration: 5.5 hours</div>
           <div className="route-fare">Fare: LKR 580 - 850</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>
@@ -102,7 +102,7 @@ function ClientHomeRout() {
           <div className="route-service">Eastern Province Route</div>
           <div className="route-duration">Duration: 6 hours</div>
           <div className="route-fare">Fare: LKR 650 - 950</div>
-          <div className="book-button-container">
+          <div className="book-button-container" style={{ position: 'absolute', bottom: '15px', right: '20px' }}>
             <button className="book-now-button">
               <span className="book-now-text">Book Now</span>
             </button>

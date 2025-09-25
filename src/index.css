@@ -1188,10 +1188,10 @@ body {
 /* Update route card height to accommodate button */
 .route-card {
   width: 280px;
-  height: 180px; /* Increased height to fit the button */
+  height: 190px; /* Increased height to fit the button */
   border: 2px solid rgba(59, 130, 246, 0.2);
   border-radius: 12px;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   position: relative;
   background-color: #fff;
