@@ -351,6 +351,36 @@ const BusOwnerReg: React.FC = () => {
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
+                {/* Empty div to align with Email Address */}
+                <div></div>
+
+                {/* Empty div to align with Address */}
+                <div></div>
+
+                {/* Bus Route Permit Number - moved up to align with NIC */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Bus Route Permit Number</label>
+                  <input
+                    type="number"
+                    name="routerPermitNumber" // Changed to match backend
+                    value={formData.routerPermitNumber}
+                    onChange={handleInputChange}
+                    placeholder="Enter permit number"
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
+                </div>
+
+                {/* Password - moved up to align with Bus Registration Number */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    placeholder="xxxxxxxxxxxxxxxxxxx"
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
+                </div>
+
                 {/* Bus Type and Sheets Count */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex-1">
@@ -392,7 +422,7 @@ const BusOwnerReg: React.FC = () => {
                 {/* Route Options - Updated to match backend */}
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Route Options</label>
-                  <div className="space-y-3">
+                  <div className="space-y-1">
                     <label className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer">
                       <input
                         type="checkbox"
@@ -410,30 +440,6 @@ const BusOwnerReg: React.FC = () => {
                       <span className="text-sm text-gray-700 select-none">Special tours available</span>
                     </label>
                   </div>
-                </div>
-
-                {/* Bus Route Permit Number */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Bus Route Permit Number</label>
-                  <input
-                    type="number"
-                    name="routerPermitNumber" // Changed to match backend
-                    value={formData.routerPermitNumber}
-                    onChange={handleInputChange}
-                    placeholder="Enter permit number"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
-                </div>
-
-                {/* Password */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    placeholder="xxxxxxxxxxxxxxxxxxx"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
               </div>
             </div>
