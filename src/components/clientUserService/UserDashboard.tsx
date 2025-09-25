@@ -1,13 +1,15 @@
 import React from 'react';
+import Header from '../common/Login_Header';
 
 const UserDashboard: React.FC = () => {
   return (
-    <div className="user-dashboard">
+    <><Header />
+    <div className="user-dashboard" style={{ marginTop: '60px' }}>
       {/* Background decorative circles */}
       <div className="bg-circle bg-circle-1" />
       <div className="bg-circle bg-circle-2" />
       <div className="bg-circle bg-circle-3" />
-      
+
       {/* Sidebar */}
       <div className="dashboard-sidebar">
         <div className="sidebar-background" />
@@ -42,7 +44,7 @@ const UserDashboard: React.FC = () => {
               <div className="stat-change positive">▲ 8%</div>
             </div>
           </div>
-          
+
           <div className="stat-card">
             <div className="stat-card-bg" />
             <div className="stat-content">
@@ -51,7 +53,7 @@ const UserDashboard: React.FC = () => {
               <div className="stat-change positive">▲ 2</div>
             </div>
           </div>
-          
+
           <div className="stat-card">
             <div className="stat-card-bg" />
             <div className="stat-content">
@@ -71,7 +73,7 @@ const UserDashboard: React.FC = () => {
               <div className="section-title">Upcoming Trips</div>
               <div className="section-subtitle">Next departures in your schedule</div>
             </div>
-            
+
             <div className="trips-list">
               <div className="trip-card">
                 <div className="trip-card-bg" />
@@ -85,7 +87,7 @@ const UserDashboard: React.FC = () => {
                   <span>Manage</span>
                 </button>
               </div>
-              
+
               <div className="trip-card">
                 <div className="trip-card-bg" />
                 <div className="trip-info">
@@ -98,7 +100,7 @@ const UserDashboard: React.FC = () => {
                   <span>Manage</span>
                 </button>
               </div>
-              
+
               <div className="trip-card">
                 <div className="trip-card-bg" />
                 <div className="trip-info">
@@ -111,7 +113,7 @@ const UserDashboard: React.FC = () => {
                   <span>Manage</span>
                 </button>
               </div>
-              
+
               <div className="trip-card">
                 <div className="trip-card-bg" />
                 <div className="trip-info">
@@ -134,7 +136,7 @@ const UserDashboard: React.FC = () => {
               <div className="section-title">Booking History</div>
               <div className="section-subtitle">Recent completed and cancelled bookings</div>
             </div>
-            
+
             <div className="booking-table">
               <div className="table-header">
                 <div className="table-header-bg" />
@@ -144,7 +146,7 @@ const UserDashboard: React.FC = () => {
                 <div className="header-cell">Amount</div>
                 <div className="header-cell">Status</div>
               </div>
-              
+
               <div className="table-row">
                 <div className="table-row-bg" />
                 <div className="table-cell">02 Sep</div>
@@ -157,7 +159,7 @@ const UserDashboard: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="table-row">
                 <div className="table-row-bg" />
                 <div className="table-cell">28 Aug</div>
@@ -170,7 +172,7 @@ const UserDashboard: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="table-row">
                 <div className="table-row-bg" />
                 <div className="table-cell">20 Aug</div>
@@ -183,7 +185,7 @@ const UserDashboard: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="table-row">
                 <div className="table-row-bg" />
                 <div className="table-cell">15 Aug</div>
@@ -196,7 +198,7 @@ const UserDashboard: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="table-row">
                 <div className="table-row-bg" />
                 <div className="table-cell">10 Aug</div>
@@ -210,7 +212,7 @@ const UserDashboard: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="pagination">
               <button className="pagination-btn active">1</button>
               <button className="pagination-btn">2</button>
@@ -224,7 +226,7 @@ const UserDashboard: React.FC = () => {
       <div className="dashboard-footer">
         © 2024 BusEase Ticketing System. All rights reserved.
       </div>
-    </div>
+    </div></>
   );
 };
 

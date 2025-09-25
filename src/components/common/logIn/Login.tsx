@@ -22,10 +22,32 @@ const Login: React.FC = () => {
     setIsLoading(true);
     setError('');
 
-    console.log('Sending login request with:', { email, password, role: selectedRole });
+    // Determine API endpoint based on selected role
+    let apiEndpoint = '';
+    let redirectPath = '';
+    
+    switch (selectedRole) {
+      case 'USER':
+        apiEndpoint = 'http://localhost:8082/customer/login';
+        redirectPath = '/UserDashboard';
+        break;
+      case 'BUS OWNER':
+        apiEndpoint = 'http://localhost:8081/busOwner/login';
+        redirectPath = '/bus-owner-dashboard';
+        break;
+      case 'ADMIN':
+        apiEndpoint = 'http://localhost:8081/admin/login';
+        redirectPath = '/admin-dashboard';
+        break;
+      default:
+        apiEndpoint = 'http://localhost:8082/customer/login';
+        redirectPath = '/UserDashboard';
+    }
+
+    console.log('Sending login request with:', { email, password, role: selectedRole, endpoint: apiEndpoint });
 
     try {
-      const response = await fetch('http://localhost:8081/busOwner/login', {
+      const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,8 +66,8 @@ const Login: React.FC = () => {
         const responseText = await response.text();
         console.log('Response text:', responseText);
         
-        // Simple redirect to dashboard on successful login
-        navigate('/dashboard');
+        // Redirect to role-specific dashboard on successful login
+        navigate(redirectPath);
       } else {
         const errorText = await response.text();
         setError(errorText || 'Login failed. Please try again.');
@@ -196,4 +218,3 @@ const Login: React.FC = () => {
 
 
 export default Login;
-           
