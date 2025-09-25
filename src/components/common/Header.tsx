@@ -43,9 +43,11 @@ function Header() {
           <nav className={`navigation-links ${isMenuOpen ? 'mobile-open' : ''}`} style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '2rem' }}>
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/book-trip" className="nav-link">Book-Trip</Link>
-            <Link to="/features" className="nav-link">Features</Link>
             <Link to="/reviews" className="nav-link">Reviews</Link>
-            <Link to="/UserDashboard" className="nav-link">Contact</Link>
+            <Link to="/about" className="nav-link">About</Link>
+            <Link to="/services" className="nav-link">Services</Link>
+            <Link to="/gallery" className="nav-link">Gallery</Link>
+            <Link to="/contact" className="nav-link">Contact</Link>
             <div className="mobile-auth-buttons">
               <Link to="/login" className="nav-link">
                 <div className="signin-button mobile-signin">
