@@ -124,7 +124,8 @@ const BusOwnerReg: React.FC = () => {
         email: formData.email,
         routerPermitNumber: parseInt(formData.routerPermitNumber, 10) || 0, // Convert to number
         routerType_normal: formData.routerType_normal,
-        routerType_special: formData.routerType_special
+        routerType_special: formData.routerType_special,
+        role: "userBusOwner" // Add role field
       };
       
       // Send request to API
@@ -322,18 +323,6 @@ const BusOwnerReg: React.FC = () => {
                     placeholder="e.g., WP NA-1234"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
-
-                {/* Password */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    placeholder="xxxxxxxxxxxxxxxxxxx"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
-                </div>
               </div>
 
               {/* Right Column */}
@@ -359,18 +348,6 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.localRouteNumber}
                     onChange={handleInputChange}
                     placeholder="e.g., 138 Maharagama – Pettah"
-                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
-                </div>
-
-                {/* Password */}
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-2">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    placeholder="xxxxxxxxxxxxxxxxxxx"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
 
@@ -444,6 +421,18 @@ const BusOwnerReg: React.FC = () => {
                     value={formData.routerPermitNumber}
                     onChange={handleInputChange}
                     placeholder="Enter permit number"
+                    className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
+                </div>
+
+                {/* Password */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">Password</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                    placeholder="xxxxxxxxxxxxxxxxxxx"
                     className="w-full px-4 py-4 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-base transition-colors" />
                 </div>
               </div>
