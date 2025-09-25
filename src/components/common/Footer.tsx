@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className=" bg-blue-800 text-white p-4">
+    <footer className="text-gray-800 p-4" style={{ backgroundColor: '#b1bad2', marginTop: 0, paddingTop: '1rem' }}>
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -10,38 +10,38 @@ export default function Footer() {
                 className="h-45 me-3"
                 alt="FlowBite Logo"
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-800">
                 {/* Flowbite */}
               </span>
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-white uppercase">
+              <h2 className="mb-6 text-sm font-semibold text-gray-800 uppercase">
                 Resources
               </h2>
-              <ul className="text-gray-200 font-medium">
+              <ul className="text-gray-700 font-medium">
                 <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline">
+                  <a href="https://flowbite.com/" className="hover:underline hover:text-gray-900">
                     Flowbite
                   </a>
                 </li>
                 <li>
-                  <a href="https://tailwindcss.com/" className="hover:underline">
+                  <a href="https://tailwindcss.com/" className="hover:underline hover:text-gray-900">
                     Tailwind CSS
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-white uppercase">
+              <h2 className="mb-6 text-sm font-semibold text-gray-800 uppercase">
                 Follow us
               </h2>
-              <ul className="text-gray-200 font-medium">
+              <ul className="text-gray-700 font-medium">
                 <li className="mb-4">
                   <a
                     href="https://github.com/themesberg/flowbite"
-                    className="hover:underline"
+                    className="hover:underline hover:text-gray-900"
                   >
                     Github
                   </a>
@@ -49,7 +49,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="https://discord.gg/4eeurUVvTy"
-                    className="hover:underline"
+                    className="hover:underline hover:text-gray-900"
                   >
                     Discord
                   </a>
@@ -57,17 +57,17 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-white uppercase">
+              <h2 className="mb-6 text-sm font-semibold text-gray-800 uppercase">
                 Legal
               </h2>
-              <ul className="text-gray-200 font-medium">
+              <ul className="text-gray-700 font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="#" className="hover:underline hover:text-gray-900">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a href="#" className="hover:underline hover:text-gray-900">
                     Terms &amp; Conditions
                   </a>
                 </li>
@@ -75,11 +75,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto white lg:my-8" />
+        <hr className="my-6 border-gray-600 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-white sm:text-center">
+          <span className="text-sm text-gray-800 sm:text-center">
             © 2025{" "}
-            <a href="https://flowbite.com/" className="hover:underline">
+            <a href="https://flowbite.com/" className="hover:underline hover:text-gray-900">
               BusEase ™
             </a>
             . All Rights Reserved.
@@ -87,7 +87,7 @@ export default function Footer() {
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <a
               href="#"
-              className=" text-white hover:text-gray-900 dark:hover:text-white"
+              className="text-gray-700 hover:text-gray-900"
             >
               <svg
                 className="w-4 h-4"
@@ -106,7 +106,7 @@ export default function Footer() {
             </a>
             <a
               href="#"
-              className=" text-white hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-700 hover:text-gray-900 ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -121,7 +121,7 @@ export default function Footer() {
             </a>
             <a
               href="#"
-              className=" text-white hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-700 hover:text-gray-900 ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -140,7 +140,7 @@ export default function Footer() {
             </a>
             <a
               href="#"
-              className=" text-white hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-700 hover:text-gray-900 ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -159,7 +159,7 @@ export default function Footer() {
             </a>
             <a
               href="#"
-              className=" text-white hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-700 hover:text-gray-900 ms-5"
             >
               <svg
                 className="w-4 h-4"

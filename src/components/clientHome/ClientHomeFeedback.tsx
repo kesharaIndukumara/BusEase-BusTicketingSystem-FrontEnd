@@ -24,7 +24,7 @@ const ClientHomeFeedback: React.FC = () => {
 
   return (
     <>
-    <div className="feedback-container">
+    <div className="feedback-container" style={{ marginBottom: 0, paddingBottom: 0 }}>
       <div className="feedback-section">
         <div className="feedback-content">
           <div className="feedback-title">
