@@ -11,6 +11,7 @@ interface CustomerData {
   password: string;
   email: string;
   mobileNumber: number;
+  role: string;
 }
 
 const UserRegistration: React.FC = () => {
@@ -23,7 +24,8 @@ const UserRegistration: React.FC = () => {
     username: '',
     password: '',
     email: '',
-    mobileNumber: 0
+    mobileNumber: 0,
+    role: 'userCustomer'
   });
   
   const [loading, setLoading] = useState(false);
@@ -42,6 +44,8 @@ const UserRegistration: React.FC = () => {
     setLoading(true);
     setError('');
 
+    console.log('Sending data to backend:', formData); // Log data being sent
+
     try {
       const response = await fetch('http://localhost:8082/customer/add', {
         method: 'POST',
@@ -54,11 +58,25 @@ const UserRegistration: React.FC = () => {
       if (response.ok) {
         const result = await response.json();
         console.log('Registration successful:', result);
-        // Navigate to login or success page
-        navigate('/signin_user');
+        console.log('User registered with role:', formData.role);
+        // Navigate to home page after successful registration
+        navigate('/');
       } else {
         const errorData = await response.json();
-        setError(errorData.message || 'Registration failed');
+        console.log('Error response:', errorData); // Log the error response
+        
+        // Check for different types of email conflict errors
+        if (response.status === 409 || 
+            (errorData.message && (
+              errorData.message.toLowerCase().includes('email') ||
+              errorData.message.toLowerCase().includes('already exists') ||
+              errorData.message.toLowerCase().includes('duplicate') ||
+              errorData.message.toLowerCase().includes('conflict')
+            ))) {
+          setError('Email already exists. Please use a different email address.');
+        } else {
+          setError('Email already exists. Please use a different email address.');
+        }
       }
     } catch (error) {
       setError('Network error. Please try again.');
