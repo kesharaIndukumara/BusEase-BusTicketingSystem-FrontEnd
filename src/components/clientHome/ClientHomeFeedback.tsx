@@ -33,7 +33,7 @@ const ClientHomeFeedback: React.FC = () => {
           
           <form onSubmit={handleSubmit} className="feedback-form">
             <div className="form-row">
-              <label className="form-label">Name</label>
+              <label className="form-label" style={{ color: 'white' }}>Name</label>
               <div className="input-wrapper">
                 <input
                   type="text"
@@ -42,13 +42,14 @@ const ClientHomeFeedback: React.FC = () => {
                   onChange={handleInputChange}
                   placeholder="Enter name"
                   className="form-input"
+                  style={{ border: 'none' }}
                   required
                 />
               </div>
             </div>
 
             <div className="form-row">
-              <label className="form-label">Route Select</label>
+              <label className="form-label" style={{ color: 'white' }}>Route Select</label>
               <div className="input-wrapper">
                 <input
                   type="text"
@@ -57,13 +58,14 @@ const ClientHomeFeedback: React.FC = () => {
                   onChange={handleInputChange}
                   placeholder="Enter Route Number"
                   className="form-input"
+                  style={{ border: 'none' }}
                   required
                 />
               </div>
             </div>
 
             <div className="form-row feedback-row">
-              <label className="form-label">Feedback</label>
+              <label className="form-label" style={{ color: 'white' }}>Feedback</label>
               <div className="textarea-wrapper">
                 <textarea
                   name="feedback"
