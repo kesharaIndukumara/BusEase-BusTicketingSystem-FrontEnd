@@ -149,18 +149,18 @@ const TripBooking: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="trip-booking-container bg-gradient-to-br from-blue-100 via-sky-200 to-blue-600">
+      <div className="trip-booking-container bg-gradient-to-br from-blue-100 via-sky-200 to-blue-600" style={{ marginTop: '60px', minHeight: 'calc(100vh - 60px)' }}>
         <div className="trip-booking-wrapper">
           <div className="trip-booking-header">
-            <h1 className="trip-booking-title">Select & Book Your Trip</h1>
-            <p className="trip-booking-subtitle">Choose from available routes and book your journey instantly</p>
+            <h1 className="trip-booking-title" style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e3a8a' }}>Select & Book Your Trip</h1>
+            <p className="trip-booking-subtitle" style={{ fontSize: '1.25rem', color: '#1e3a8a' }}>Choose from available routes and book your journey instantly</p>
           </div>
 
           {!showBookingForm ? (
             <div className="routes-selection">
               <div className="routes-grid">
                 {routes.map((route) => (
-                  <div key={route.id} className="route-booking-card">
+                  <div key={route.id} className="route-booking-card" style={{ backgroundColor: 'white', borderRadius: '8px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '16px'}}>
                     <div className="route-header">
                       <div className="route-id">{route.routeNumber}</div>
                       <div className="available-seats">
