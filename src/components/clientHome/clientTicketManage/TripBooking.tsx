@@ -149,7 +149,7 @@ const TripBooking: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="trip-booking-container">
+      <div className="trip-booking-container bg-gradient-to-br from-blue-100 via-sky-200 to-blue-600">
         <div className="trip-booking-wrapper">
           <div className="trip-booking-header">
             <h1 className="trip-booking-title">Select & Book Your Trip</h1>
