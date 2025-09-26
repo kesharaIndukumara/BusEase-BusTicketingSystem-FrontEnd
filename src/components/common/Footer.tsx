@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="text-gray-800 p-4" style={{ backgroundColor: '#b1bad2', marginTop: 0, paddingTop: '1rem' }}>
+    <footer className="text-gray-800 p-4 bg-gradient-to-br from-blue-100 via-sky-200 to-blue-600" style={{ marginTop: 0, paddingTop: '1rem' }}>
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">

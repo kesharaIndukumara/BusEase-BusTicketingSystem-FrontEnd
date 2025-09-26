@@ -140,12 +140,12 @@ const ReviewsPage: React.FC = () => {
       {/* Main Content with top padding to account for fixed header */}
       <div className="pt-20">
         {/* Hero Section */}
-        <div className="hero-gradient text-white py-16">
+        <div className="bg-gradient-to-br from-blue-100 via-sky-200 to-blue-600 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="hero-title text-4xl md:text-5xl font-bold mb-4">
               What Our Happy Users Say!
             </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-500 mb-8 max-w-3xl mx-auto" style={{ lineHeight: '1.6', fontWeight: '500',  }}>
               Smarter, faster, and way more fun here's what makes BusEase your ultimate travel companion.
             </p>
             
