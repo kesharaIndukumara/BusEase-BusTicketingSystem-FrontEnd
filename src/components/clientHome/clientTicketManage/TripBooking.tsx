@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TripBooking.css';
 import Header from '../../common/Header';
+import { useNavigate } from 'react-router-dom';
 
 interface Route {
   id: string;
@@ -20,6 +21,7 @@ interface BookingDetails {
   contactNumber: string;
   email: string;
   seatCount: number;
+  travelDate: string; // added
 }
 
 const TripBooking: React.FC = () => {
@@ -30,8 +32,11 @@ const TripBooking: React.FC = () => {
     passengerName: '',
     contactNumber: '',
     email: '',
-    seatCount: 1
+    seatCount: 1,
+    travelDate: '' // added
   });
+
+  const navigate = useNavigate();
 
   // Sample routes data - in real app this would come from API
   const routes: Route[] = [
@@ -117,21 +122,62 @@ const TripBooking: React.FC = () => {
     }));
   };
 
-  const handleBookingSubmit = (e: React.FormEvent) => {
+  const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the booking data to your backend
-    alert(`Booking confirmed for ${selectedRoute?.routeNumber} - ${selectedRoute?.startLocation} to ${selectedRoute?.endLocation}`);
-    
-    // Reset form
-    setShowBookingForm(false);
-    setSelectedRoute(null);
-    setBookingDetails({
-      routeId: '',
-      passengerName: '',
-      contactNumber: '',
-      email: '',
-      seatCount: 1
-    });
+
+    // basic validation for required fields
+    if (!selectedRoute) {
+      alert('Please select a route before booking.');
+      return;
+    }
+
+    const { passengerName, contactNumber, email, seatCount, travelDate } = bookingDetails;
+    if (
+      !passengerName.trim() ||
+      !contactNumber.trim() ||
+      !email.trim() ||
+      seatCount < 1
+    ) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    if (seatCount > selectedRoute.availableSeats) {
+      alert(`Only ${selectedRoute.availableSeats} seats are available.`);
+      return;
+    }
+
+    if (!travelDate) {
+      alert('Please select a travel date.');
+      return;
+    }
+
+    try {
+      const payload = {
+        fullName: passengerName.trim(),
+        contactNumber: parseInt(contactNumber.trim(), 10),
+        email: email.trim(),
+        seatCount: Number(seatCount),
+        busNumber: selectedRoute.routeNumber,
+        Date: new Date(travelDate).toISOString(), // use selected travel date
+        busRoute: `${selectedRoute.startLocation} - ${selectedRoute.endLocation}`
+      };
+
+      const res = await fetch('http://localhost:8083/ticket/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
+
+      navigate('/'); // success: go home, no alert
+    } catch (error) {
+      console.error('Booking submission failed:', error);
+      alert('Failed to submit booking. Please try again.');
+    }
   };
 
   const handleCancelBooking = () => {
@@ -142,7 +188,8 @@ const TripBooking: React.FC = () => {
       passengerName: '',
       contactNumber: '',
       email: '',
-      seatCount: 1
+      seatCount: 1,
+      travelDate: '' // added
     });
   };
 
@@ -254,6 +301,20 @@ const TripBooking: React.FC = () => {
                     className="form-input"
                     min="1"
                     max={selectedRoute?.availableSeats || 1}
+                    required
+                  />
+                </div>
+
+                {/* date picker - added */}
+                <div className="form-group">
+                  <label className="form-label">Travel Date</label>
+                  <input
+                    type="date"
+                    name="travelDate"
+                    value={bookingDetails.travelDate}
+                    onChange={handleInputChange}
+                    className="form-input"
+                    min={new Date().toISOString().split('T')[0]}
                     required
                   />
                 </div>
